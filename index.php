@@ -1,2 +1,2 @@
 <?php
-print "practica";
+class Persona {}
