@@ -11,7 +11,7 @@ $this->edad = $edad;
 }
 
 public function showMe(){
-return "Nombre: ".$this->nombre."/n Apellido: \n".$this->apellido.", Edad: \n".$this->edad;
+return "Nombre: ".$this->nombre."<br>Apellido: ".$this->apellido."<br> Edad: ".$this->edad;
 }
 }
 
