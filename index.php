@@ -16,4 +16,4 @@ return "Nombre: ".$this->nombre."<br>Apellido: ".$this->apellido."<br> Edad: ".$
 }
 
 $persona1 = new Persona("Samahí","Hernandez","Rosas");
-print $persona1->showMe();
+print $persona1->nombre;
