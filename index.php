@@ -1,4 +1,3 @@
-<?php
 class Persona{
 public $nombre;
 public $apellido;
@@ -11,10 +10,10 @@ $this->edad = $edad;
 }
 
 public function showMe(){
-return "Nombre: ".$this->nombre." <br> Apellido: ".$this->apellido." <br> Edad:  ".$this->edad;
+return "Nombre: ".$this->nombre." <br> Apellido: ".$this->apellido." <br> Edad: ".$this->edad;
 }
 }
 
-$persona1 = new Persona("Daniela","Torres",11);
+$persona1 = new Persona ("Ruth","Hernandez",29);
 
-echo $persona1->showMe();
+print $persona1->showMe();
