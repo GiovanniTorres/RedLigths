@@ -6,6 +6,6 @@ ini_set('display_errors', 1); // Útiles en desarrollo
 spl_autoload_register(function ($class) {
     $file = __DIR__ . '/../' . str_replace('\\', '/', $class) . '.php';
 
+  print $file;
 });
 
-print $file;
