@@ -1,19 +1,7 @@
 <?php
-class persona{
-  public $nombre;
-  public $apellido;
-  public $edad;
+error_reporting(E_ALL); //Útiles en desarrollo 
+ini_set('display_errors', 1); // Útiles en desarrollo 
 
-  public function __construct($nombre,$apellido,$edad){
-    $this->nombre = $nombre;
-    $this->apellido = $apellido;
-    $this->edad = $edad;
-  }
-
-  public function showMe(){
-    return "Nombre: ".$this->nombre."<br>Apellido: ".$this->apellido."<br>Edad: ".$this->edad;
-  }
-}
-
-$persona1 = new Persona ("Daniela","Torres","11");
-print $persona1->nombre;
+// Autocargar clases automáticamente
+spl_autoload_register(function ($class) {
+    $file = __DIR__ . '/../' . str_replace('\\', '/', $class) . '.php';
