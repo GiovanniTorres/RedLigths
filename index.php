@@ -16,4 +16,4 @@ class persona{
 }
 
 $persona1 = new Persona ("Daniela","Torres","11");
-print $persona1->showMe();
+print $persona1->nombre;
