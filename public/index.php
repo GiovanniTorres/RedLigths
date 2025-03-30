@@ -1,14 +1,9 @@
 <?php
-error_reporting(E_ALL); //Útiles en desarrollo 
-ini_set('display_errors', 1); // Útiles en desarrollo 
+require_once __DIR__ . '/../core/Autoload.php'; // Cargar el autoloader
+require_once __DIR__ . '/../core/Router.php'; // Cargar el enrutador
 
-// Autocargar clases automáticamente
-spl_autoload_register(function ($class) {
-    $file = __DIR__ . '/../' . str_replace('\\', '/', $class) . '.php';
-    
-    if (file_exists($file)) {
-        require_once $file;
-    } else {
-        die("Error: No se pudo cargar la clase $class (Archivo esperado: $file)");
-    }
-});
+use Core\Router;
+
+// Crear una instancia del enrutador y manejar la solicitud
+$router = new Router();
+$router->handleRequest(); // Gestionar la solicitud y cargar la vista correspondiente
