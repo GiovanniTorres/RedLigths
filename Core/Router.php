@@ -14,7 +14,7 @@ class Router {
             $controller = new $controllerClass();
             $controller->view($url);
         } else {
-            echo "Error 404: Página no encontrada.";
+            echo "Router.php Error 404: Página no encontrada.";
         }
     }
 }
