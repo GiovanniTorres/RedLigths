@@ -2,8 +2,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once __DIR__ . '/../core/Autoload.php'; // Cargar el autoloader
-require_once __DIR__ . '/../core/Router.php'; // Cargar el enrutador
+require_once __DIR__ . '/../Core/Autoload.php'; // Cargar el autoloader
+require_once __DIR__ . '/../Core/Router.php'; // Cargar el enrutador
 
 use Core\Router;
 
