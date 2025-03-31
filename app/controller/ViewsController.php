@@ -15,7 +15,7 @@ class ViewsController
 
     private function loadView($view)
     {
-        $views = ['home', 'services', 'about', 'contact', 'products']; // Vistas permitidas
+        $views = ['home', 'services', 'about', 'contact', 'product']; // Vistas permitidas
 
         if (in_array($view, $views)) {
             require_once '../app/views/header.php';
