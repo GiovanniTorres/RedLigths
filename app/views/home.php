@@ -22,5 +22,5 @@
         </div>
     </div>
 </section><!-- Botón de Contacto --><div class="text-center py-10 bg-white">
-    <a href="#" class="text-turquoise-400 hover:text-red-500 font-bold py-2 px-6 rounded-full text-lg shadow-md">Contáctame</a>
+    <a href="#" class="text-turquoise-400 hover:text-black-500 font-bold py-2 px-6 rounded-full text-lg shadow-md">Contáctame</a>
 </div>
