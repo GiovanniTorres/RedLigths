@@ -1,0 +1,108 @@
+/* ✅ Estilos base */
+.header-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px;
+background: #000;
+color: white;
+position: relative;
+}
+
+.logo a {
+text-decoration: none;
+font-size: 20px;
+color: white;
+font-weight: bold;
+}
+
+#parentesis {color:red;}
+
+.navbar {
+display: flex;
+align-items: center;
+}
+
+.menu {
+display: flex;
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.menu li {
+margin: 0 15px;
+}
+
+.menu a {
+text-decoration: none;
+color: white;
+font-size: 16px;
+transition: color 0.3s;
+}
+
+.menu a:hover {
+color: red;
+}
+
+/* ✅ Menú hamburguesa */
+.menu-toggle {
+display: none;
+flex-direction: column;
+cursor: pointer;
+padding: 10px;
+transition: all 0.3s ease;
+z-index: 100; / Asegura que siempre esté encima del contenido */
+}
+
+/* Barras de la hamburguesa */
+.menu-toggle .bar {
+background: white;
+width: 30px;
+height: 4px;
+margin: 4px 0;
+transition: all 0.3s ease;
+box-shadow: 0 0 8px rgba(0, 0, 0, 1); / Sombra */
+}
+
+/* ✅ Efectos para cruzar las barras y formar una "X" */
+.menu-toggle.active .bar:nth-child(1) {
+transform: translateY(8px) rotate(45deg); / Primera barra rotada */
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+opacity: 0; /* La segunda barra desaparece */
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+transform: translateY(-8px) rotate(-45deg); /* Tercera barra rotada */
+}
+
+/* ✅ Responsivo (cuando la pantalla sea pequeña) */
+@media (max-width: 768px), (max-width: 1000px) and (max-content) {
+.menu {
+display: none;
+flex-direction: column;
+width: 100%;
+position: absolute;
+top: 60px;
+left: 0;
+background: rgba(0, 0, 0, 255);
+padding: 10px 0;
+text-align: center;
+box-shadow: 0 0 15px rgba(0, 0, 0, 1); / Sombra en el menú */
+}
+
+.menu.active {  
+    display: flex;  
+}  
+
+.menu li {  
+    margin: 10px 0;  
+}  
+
+.menu-toggle {  
+    display: flex;  
+}
+
+}
