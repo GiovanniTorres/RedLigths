@@ -7,7 +7,7 @@ class Router
     public function handleRequest()
     {
         // Siempre cargar ViewsController
-        $controllerClass = "App\\Controllers\\ViewsController";
+        $controllerClass = "App\\Controller\\ViewsController";
 
         // Verificar si el controlador existe
         if (class_exists($controllerClass)) {
