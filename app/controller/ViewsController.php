@@ -1,7 +1,7 @@
 // app/controllers/ViewsController.php
 <?php
 
-namespace App\Controllers;
+namespace App\Controller;
 
 class ViewsController
 {
