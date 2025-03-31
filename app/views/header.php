@@ -15,7 +15,7 @@
    <link rel="stylesheet" href="footer.css"> <!-- Estilos Generales -->
 
 <script src="menu.js"></script>
-
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
