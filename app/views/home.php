@@ -2,11 +2,7 @@
     <h1 class="text-4xl font-bold text-black">RedLights()<span class="text-red-500">.</span></h1>
     <p class="text-lg text-black">Desarrollo<span class="text-red-500">,</span> web con estilo<span class="text-red-500"> y </span>eficiencia<span class="text-red-500">.</span></p>
 </div>
-<!-- Barra de Navegación -->
-<nav class="bg-black text-white p-4 flex justify-between items-center">
-    <h1 class="text-xl font-bold">RedLights()</h1>
-    <button onclick="toggleLoginModal()" class="bg-red-500 text-white px-4 py-2 rounded">Iniciar sesión</button>
-</nav>
+
 <!-- Modal de Inicio de Sesión -->
 <div id="loginModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
     <div class="bg-white p-6 rounded-lg shadow-lg w-96">
