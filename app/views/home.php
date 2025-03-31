@@ -1,7 +1,7 @@
 <div class="text-center py-10 bg-white text-white">
     <h1 class="text-4xl font-bold text-black-400">RedLights()</h1>
     <p class="text-lg text-black-400">Desarrollo web con estilo y eficiencia</p>
-</div><!-- Sección de Proyectos --><section class="max-w-6xl mx-auto px-6 bg-black text-white">
+</div><!-- Sección de Proyectos --><section class="max-w-6xl mx-auto px-6 bg-white text-white">
     <h2 class="text-3xl text-black-400 mb-6">Proyectos Destacados</h2>
     <div class="grid md:grid-cols-3 gap-6">
         <!-- Tarjeta de Proyecto -->
