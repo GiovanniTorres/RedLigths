@@ -5,7 +5,7 @@ class ViewsController
 {
     public function view($view)
     {
-require_once __DIR__ . '/../views/' . $view . '.php';
+$file = __DIR__ . '/../views/' . $view . '.php';
         
         if (file_exists($file)) {
             require_once __DIR__ . '/../app/views/header.php';
