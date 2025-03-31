@@ -1,5 +1,5 @@
 <div class="text-center py-10 bg-white text-white">
-    <h1 class="text-4xl font-bold text-black">RedLights<span class="text-red">()</span></h1>
+    <h1 class="text-4xl font-bold text-black">RedLights<span class="text-red-500">()</span></h1>
     <p class="text-lg text-black">Desarrollo<span class="text-red-500">,</span> web con estilo<span class="text-red-500"> y </span>eficiencia<span class="text-red-500">.</span></p>
 </div>
 <!-- Sección de Proyectos -->
