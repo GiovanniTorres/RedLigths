@@ -22,7 +22,7 @@ class ViewsController
             require_once "../app/views/{$view}.php"; // Cargar la vista
             require_once '../app/views/footer.php';
         } else {
-            echo "<h1>404 - Página no encontrada</h1>"; // Si la vista no existe
+            echo "<h1>404 - Views Página no encontrada</h1>"; // Si la vista no existe
         }
     }
 }
