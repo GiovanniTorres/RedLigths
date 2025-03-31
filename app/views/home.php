@@ -1,6 +1,21 @@
 <div class="text-center py-10 bg-white text-white">
-    <h1 class="text-4xl font-bold text-black">RedLights<span class="text-red-500">()</span></h1>
+    <h1 class="text-4xl font-bold text-black">RedLights()<span class="text-red-500">.</span></h1>
     <p class="text-lg text-black">Desarrollo<span class="text-red-500">,</span> web con estilo<span class="text-red-500"> y </span>eficiencia<span class="text-red-500">.</span></p>
+</div>
+<!-- Barra de Navegación -->
+<nav class="bg-black text-white p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold">RedLights()</h1>
+    <button onclick="toggleLoginModal()" class="bg-red-500 text-white px-4 py-2 rounded">Iniciar sesión</button>
+</nav>
+<!-- Modal de Inicio de Sesión -->
+<div id="loginModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+        <h2 class="text-2xl mb-4 text-black">Iniciar sesión</h2>
+        <input type="text" placeholder="Usuario" class="w-full p-2 mb-2 border rounded">
+        <input type="password" placeholder="Contraseña" class="w-full p-2 mb-4 border rounded">
+        <button class="bg-red-500 text-white px-4 py-2 w-full rounded">Entrar</button>
+        <button onclick="toggleLoginModal()" class="mt-2 text-red-500 w-full">Cerrar</button>
+    </div>
 </div>
 <!-- Sección de Proyectos -->
 <section class="max-w-6xl mx-auto px-6 bg-white text-white">
@@ -28,3 +43,9 @@
 <div class="text-center py-10 bg-white">
     <a href="#" class="text-turquoise-400 hover:text-black-500 font-bold py-2 px-6 rounded-full text-lg shadow-md">Cont<span class="text-red-500">á</span>ctame</a>
 </div>
+<!-- Script para el Modal -->
+<script>
+function toggleLoginModal() {
+    document.getElementById("loginModal").classList.toggle("hidden");
+}
+</script>
