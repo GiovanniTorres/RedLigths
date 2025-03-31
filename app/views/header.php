@@ -1,1 +1,2 @@
-header 
+<?php
+print "header";
