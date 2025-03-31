@@ -28,7 +28,7 @@
                     <li><a href="?views=home">Inicio</a></li>
                     <li><a href="?views=product">Productos</a></li>
                     <li><a href="?views=contact">Contacto</a></li>
-                    <li><a href="?views=about">Sobre Nosotros</a></li>
+                    <li><a href="?views=aboutme">Sobre Nosotros</a></li>
                 </ul>
                 <div class="menu-toggle" id="menu-toggle">
                     <span class="bar"></span>
