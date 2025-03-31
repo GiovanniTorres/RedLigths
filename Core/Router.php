@@ -14,7 +14,7 @@ class Router
             $controller = new $controllerClass();
             $controller->index(); // Llamar al método index para cargar la vista
         } else {
-            echo "Error 404: Página no encontrada.";
+            echo "Router Error 404: Página no encontrada.";
         }
     }
 }
