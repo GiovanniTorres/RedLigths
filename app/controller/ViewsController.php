@@ -1,4 +1,3 @@
-// app/controllers/ViewsController.php
 <?php
 
 namespace App\Controller;
