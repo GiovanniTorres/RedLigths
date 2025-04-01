@@ -7,13 +7,14 @@ $data = require __DIR__ . '/auth/register.php';
 
 <?php if (isset($data['success'])): ?>
     <!--div class="flex items-center justify-center min-h-screen p-4"-->
-    <div class="flex items-center justify-center min-h-screen bg-gray-100">
+    
     <p class="text-green-500"><?= $data['success']; ?></p>
     <?php endif; ?>
     <?php if (isset($data['error'])): ?>
         <p class="text-red-500"><?= $data['error']; ?></p>
         <?php endif; ?>
 
+    <div class="flex items-center justify-center min-h-screen bg-gray-100">
         <form method="POST" action="" class="p-6">
             <input type="text" class="block w-full-mb-2 p-2 border rounded" name="name" placeholder="Nombre" required>
             <input type="email" class="block w-full-mb-2 p-2 border rounded" name="email" placeholder="Correo" required>
