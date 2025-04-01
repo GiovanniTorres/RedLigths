@@ -21,7 +21,7 @@
         <div class="bg-black p-4 rounded-xl shadow-lg">
             <img src="https://via.placeholder.com/300" alt="Proyecto 3" class="rounded-lg mb-3">
             <h3 class="text-xl text-white">Proyecto 3</h3>
-            <p class="text-gray-400">Descripci<span class="text-red-500">ó</span>n breve del proyecto<span class="text-red-500">...</span></p>
+            <p class="text-gray-400">Descripción breve del proyecto<span class="text-red-500">...</span></p>
         </div>
     </div>
 </section>
