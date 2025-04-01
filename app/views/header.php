@@ -20,7 +20,7 @@
 <body>
     <header>
         <div class="header-container">
-            <div class="border border-black-500 logo">
+            <div class="border border-black logo">
                 <a href="#"><span id="parentesis">(&nbsp)</span></a>
             </div>
             <nav class="navbar">
