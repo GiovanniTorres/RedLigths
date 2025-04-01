@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../../controller/LoginController.php'; ?>
+//require_once __DIR__ . '/../../../controller/LoginController.php'; ?>
 
 <div class="flex items-center justify-center min-h-screen bg-gray-100">
     <form action="/login" method="POST" class="bg-white p-6 rounded-lg shadow-md w-96">
