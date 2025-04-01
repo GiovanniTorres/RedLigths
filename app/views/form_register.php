@@ -1,3 +1,4 @@
+<?php
 $data = require __DIR__ . '/views/auth/register.php';
 ?>
 <?php if (isset($data['success'])): ?>
