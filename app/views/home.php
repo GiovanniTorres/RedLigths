@@ -11,12 +11,12 @@
         <div class="bg-black p-4 rounded-xl shadow-lg">
             <img src="https://via.placeholder.com/300" alt="Proyecto 1" class="rounded-lg mb-3">
             <h3 class="text-xl text-white">Proyecto 1</h3>
-            <p class="text-gray-400">Descripci<span class="text-red-500">ó</span>n breve del proyecto<span class="text-red-500">...</span></p>
+            <p class="text-gray-400">Descripción breve del proyecto<span class="text-red-500">...</span></p>
         </div>
         <div class="bg-black p-4 rounded-xl shadow-lg">
             <img src="https://via.placeholder.com/300" alt="Proyecto 2" class="rounded-lg mb-3">
             <h3 class="text-xl text-white">Proyecto 2</h3>
-            <p class="text-gray-400">Descripci<span class="text-red-500">ó</span>n breve del proyecto<span class="text-red-500">...</span></p>
+            <p class="text-gray-400">Descripción breve del proyecto<span class="text-red-500">...</span></p>
         </div>
         <div class="bg-black p-4 rounded-xl shadow-lg">
             <img src="https://via.placeholder.com/300" alt="Proyecto 3" class="rounded-lg mb-3">
@@ -27,7 +27,7 @@
 </section>
 <!-- Botón de Contacto -->
 <div class="text-center py-10 bg-white">
-    <a href="#" class="text-turquoise-400 hover:text-black-500 font-bold py-2 px-6 rounded-full text-lg shadow-md">Cont<span class="text-red-500">á</span>ctame</a>
+    <a href="#" class="text-turquoise-400 hover:text-black-500 font-bold py-2 px-6 rounded-full text-lg shadow-md">Contáctame</a>
 </div>
 <!-- Script para el Modal -->
 <script>
