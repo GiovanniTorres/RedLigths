@@ -13,7 +13,7 @@ $data = require __DIR__ . '/auth/register.php';
         <p class="text-red-500"><?= $data['error']; ?></p>
         <?php endif; ?>
 
-        <form method="POST" action="">
+        <form method="POST" action="" class="p-6">
             <input type="text" name="name" placeholder="Nombre" required>
             <input type="email" name="email" placeholder="Correo" required>
             <input type="password" name="password" placeholder="Contraseña" required>
