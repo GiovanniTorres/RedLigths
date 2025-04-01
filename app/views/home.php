@@ -1,18 +1,8 @@
 <div class="text-center py-10 bg-white text-white">
     <h1 class="text-4xl font-bold text-black">RedLights<span class="text-red-500">()</span></h1>
-    <p class="text-lg text-black">Desarrollo<span class="text-red-500">,</span> web con estilo<span class="text-red-500"> y </span>eficiencia<span class="text-red-500">.</span></p>
+    <p class="text-lg text-black">Desarrollo<span class="text-red-500">,</span> web con estilo y eficiencia<span class="text-red-500">.</span></p>
 </div>
 
-<!-- Modal de Inicio de Sesión -->
-<div id="loginModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-    <div class="bg-white p-6 rounded-lg shadow-lg w-96">
-        <h2 class="text-2xl mb-4 text-black">Iniciar sesión</h2>
-        <input type="text" placeholder="Usuario" class="w-full p-2 mb-2 border rounded">
-        <input type="password" placeholder="Contraseña" class="w-full p-2 mb-4 border rounded">
-        <button class="bg-red-500 text-white px-4 py-2 w-full rounded">Entrar</button>
-        <button onclick="toggleLoginModal()" class="mt-2 text-red-500 w-full">Cerrar</button>
-    </div>
-</div>
 <!-- Sección de Proyectos -->
 <section class="max-w-6xl mx-auto px-6 bg-white text-white">
     <h2 class="text-3xl text-black mb-6">Proyectos Destacados<span class="text-red-500">.</span></h2>
