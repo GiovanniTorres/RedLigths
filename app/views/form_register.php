@@ -1,7 +1,7 @@
 <?php
 $data = require __DIR__ . '/auth/register.php';
 ?>
-<div class="border border-black-500 p-4">
+<div class="border border-black-500 p-4 text-center">
     <p>Registrarte</p>
 </div>
 
