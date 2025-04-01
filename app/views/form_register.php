@@ -6,7 +6,8 @@ $data = require __DIR__ . '/auth/register.php';
 </div>
 
 <?php if (isset($data['success'])): ?>
-    <div class="flex items-center justify-center min-h-screen p-4">
+    <!--div class="flex items-center justify-center min-h-screen p-4"-->
+    <div class="flex items-center justify-center min-h-screen bg-gray-100">
     <p class="text-green-500"><?= $data['success']; ?></p>
     <?php endif; ?>
     <?php if (isset($data['error'])): ?>
