@@ -1,5 +1,5 @@
 <?php
-$data = require __DIR__ . '/views/auth/register.php';
+$data = require __DIR__ . '/auth/register.php';
 ?>
 <?php if (isset($data['success'])): ?>
     <p class="text-green-500"><?= $data['success']; ?></p>
