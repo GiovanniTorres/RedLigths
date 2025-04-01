@@ -20,8 +20,8 @@
 <body>
     <header>
         <div class="header-container">
-            <div class="border border-grey-500 logo">
-                <a href="#"><span id="parentesis">()</span></a>
+            <div class="border border-black-500 logo">
+                <a href="#"><span id="parentesis">(&nbsp)</span></a>
             </div>
             <nav class="navbar">
                 <ul class="menu" id="menu">
