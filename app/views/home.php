@@ -1,5 +1,5 @@
 <div class="text-right border border-black-500 p-4">
-    <a href="#">Iniciar sesión</a>
+    <a class="hover:text-red-500" href="#">Iniciar sesión</a>
 </div>
 
 
