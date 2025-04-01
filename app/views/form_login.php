@@ -14,7 +14,7 @@
         <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded">Entrar</button>
 
         <p class="text-center text-sm mt-4">
-            ¿No tienes cuenta? <a href="/register" class="text-blue-500">Regístrate aquí</a>
+            ¿No tienes cuenta? <a href="?views=form_register" class="text-blue-500">Regístrate aquí</a>
         </p>
     </form>
 </div>
