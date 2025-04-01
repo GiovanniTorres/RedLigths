@@ -1,9 +1,6 @@
 <?php
 $data = require __DIR__ . '/auth/register.php';
 ?>
-<div class="border border-black-500 p-4 text-center">
-    <p>Registrarte</p>
-</div>
 
 <?php if (isset($data['success'])): ?>
     <!--div class="flex items-center justify-center min-h-screen p-4"-->
