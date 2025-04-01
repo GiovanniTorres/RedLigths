@@ -1,3 +1,8 @@
+<div class="text-right border border-black-500 p-4">
+    <a href="#">Iniciar sesión</a>
+</div>
+
+
 <div class="text-center py-10 bg-white text-white">
     <h1 class="text-4xl font-bold text-black">RedLights<span class="text-red-500">()</span></h1>
     <p class="text-lg text-black">Desarrollo, web con estilo y eficiencia<span class="text-red-500">.</span></p>
