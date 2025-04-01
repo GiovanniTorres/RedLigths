@@ -6,6 +6,7 @@ $data = require __DIR__ . '/auth/register.php';
 </div>
 
 <?php if (isset($data['success'])): ?>
+    <div class="flex items-center justify-center min-h-screen">
     <p class="text-green-500"><?= $data['success']; ?></p>
     <?php endif; ?>
     <?php if (isset($data['error'])): ?>
@@ -14,7 +15,8 @@ $data = require __DIR__ . '/auth/register.php';
 
         <form method="POST" action="">
             <input type="text" name="name" placeholder="Nombre" required>
-                <input type="email" name="email" placeholder="Correo" required>
-                    <input type="password" name="password" placeholder="Contraseña" required>
-                        <button type="submit">Registrar</button>
-                        </form>
+            <input type="email" name="email" placeholder="Correo" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <button type="submit">Registrar</button>
+        </form>
+    </div>
