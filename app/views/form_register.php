@@ -14,9 +14,9 @@ $data = require __DIR__ . '/auth/register.php';
         <?php endif; ?>
 
         <form method="POST" action="" class="p-6">
-            <input type="text" name="name" placeholder="Nombre" required>
-            <input type="email" name="email" placeholder="Correo" required>
-            <input type="password" name="password" placeholder="Contraseña" required>
-            <button type="submit">Registrar</button>
+            <input type="text" class="block w-full-mb-2 p-2 border rounded" name="name" placeholder="Nombre" required>
+            <input type="email" class="block w-full-mb-2 p-2 border rounded" name="email" placeholder="Correo" required>
+            <input type="password" class="block w-full-mb-2 p-2 border rounded" name="password" placeholder="Contraseña" required>
+            <button type="submit" class="w-full bg-blus-500 text-white p-2" >Registrar</button>
         </form>
     </div>
