@@ -12,7 +12,7 @@ $data = require __DIR__ . '/auth/register.php';
         <?php endif; ?>
 
     <div class="flex items-center justify-center min-h-screen bg-gray-100">
-        <form method="POST" action="" class="p-6">
+        <form method="POST" action="" class="bg-white p-6 rounded-lg shadow-md w-96">
             <h2 class="text-center text-xl font-bold mb-4">Iniciar Sesión</h2>
             <input type="text" class="block w-full-mb-2 p-2 border rounded" name="name" placeholder="Nombre" required>
             <input type="email" class="block w-full-mb-2 p-2 border rounded" name="email" placeholder="Correo" required>
