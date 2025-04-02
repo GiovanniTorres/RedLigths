@@ -3,7 +3,7 @@ version: '3.8'
 services:
   app:
     build: .
-    container_name: escentialcore_app
+    container_name: redlights_app
     ports:
       - "8080:80"
     volumes:
@@ -13,11 +13,11 @@ services:
 
   db:
     image: mysql:8.0
-    container_name: escentialcore_db
+    container_name: redlights_db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: escentialcore
+      MYSQL_DATABASE: redlights
       MYSQL_USER: user
       MYSQL_PASSWORD: password
     ports:
