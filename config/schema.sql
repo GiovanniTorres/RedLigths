@@ -19,3 +19,4 @@ CREATE TABLE projects (
     title VARCHAR(255) NOT NULL,
     description TEXT,
     created_at TIMESTAMP DEFAULT CURRENT
+);
