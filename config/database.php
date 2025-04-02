@@ -1,27 +1,16 @@
 <?php
-class Database {
-    private static $instance = null;
-        private $conn;
 
-            private $host = "localhost";
-                private $db_name = "escentialcore";
-                    private $username = "root";
-                        private $password = "root";
+$host = "db"; // Nombre del servicio en docker-compose
+$dbname = "redlights"; // Nombre de la base de datos
+$username = "user";
+$password = "password";
 
-                            private function __construct() {
-                                    try {
-                                                $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
-                                                            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                                                                    } catch (PDOException $exception) {
-                                                                                die("Error de conexión: " . $exception->getMessage());
-                                                                                        }
-                                                                                            }
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Conexión exitosa!";
+} catch (PDOException $e) {
+    die("Error de conexión: " . $e->getMessage());
+}
 
-                                                                                                public static function getInstance() {
-                                                                                                        if (!self::$instance) {
-                                                                                                                    self::$instance = new Database();
-                                                                                                                            }
-                                                                                                                                    return self::$instance->conn;
-                                                                                                                                        }
-                                                                                                                                        }
-                                                                                                                                        ?>
+?>
