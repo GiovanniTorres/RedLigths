@@ -1,0 +1,11 @@
+{
+    "name": "PHP MySQL",
+      "image": "mcr.microsoft.com/devcontainers/php:8.0-bullseye",
+        "features": {
+            "ghcr.io/devcontainers/features/mysql:1": {
+                  "version": "8.0"
+                      }
+                        },
+                          "forwardPorts": [3306, 8000],
+                            "postCreateCommand": "php -v && php -m"
+                            }
