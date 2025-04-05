@@ -1,39 +1,20 @@
 <?php
-
-require_once __DIR__ . '/config.php';
-
 class Database {
     private $pdo;
 
-        public function __construct() {
-                try {
-                            $this->pdo = new PDO(
-                                            "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME,
-                                                            DB_USER,
-                                                                            DB_PASS
-                                                                                        );
-                                                                                                    $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                                                                                                            } catch (PDOException $e) {
-                                                                                                                        die("Error de conexión: " . $e->getMessage());
-                                                                                                                                }
-                                                                                                                                    }
+    public function __construct() {
+        $config = require __DIR__ . '/../config/database.php';
 
-                                                                                                                                        public function get($query, $params = []) {
-                                                                                                                                                $stmt = $this->pdo->prepare($query);
-                                                                                                                                                        $stmt->execute($params);
-                                                                                                                                                                return $stmt->fetchAll(PDO::FETCH_ASSOC);
-                                                                                                                                                                    }
+        $dsn = "mysql:host={$config['host']};dbname={$config['name']};charset=utf8mb4";
+        $options = [
+            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        ];
 
-                                                                                                                                                                        public function set($query, $params = []) {
-                                                                                                                                                                                $stmt = $this->pdo->prepare($query);
-                                                                                                                                                                                        return $stmt->execute($params);
-                                                                                                                                                                                            }
+        $this->pdo = new PDO($dsn, $config['user'], $config['pass'], $options);
+    }
 
-                                                                                                                                                                                                public function sel($query, $params = []) {
-                                                                                                                                                                                                        return $this->get($query, $params);
-                                                                                                                                                                                                            }
-
-                                                                                                                                                                                                                public function update($query, $params = []) {
-                                                                                                                                                                                                                        return $this->set($query, $params);
-                                                                                                                                                                                                                            }
-                                                                                                                                                                                                                            }
+    public function getConnection() {
+        return $this->pdo;
+    }
+}
