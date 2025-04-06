@@ -1,62 +1,44 @@
 <?php
-
 namespace App\Models;
 
 use Core\Database;
-use PDO;
 
 class UserModel
 {
-    private $db;
-
-    public function __construct()
+    public static function getAllUsers()
     {
-        $this->db = Database::getInstance()->getConnection();
+        $db = Database::getInstance();
+        $stmt = $db->query("SELECT * FROM users");
+        return $stmt->fetchAll();
     }
 
-    // Obtener todos los usuarios
-    public function getAll()
+    public static function getUserById($id)
     {
-        $stmt = $this->db->query("SELECT * FROM users ORDER BY id DESC");
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    // Obtener usuario por ID
-    public function getById($id)
-    {
-        $stmt = $this->db->prepare("SELECT * FROM users WHERE id = ?");
+        $db = Database::getInstance();
+        $stmt = $db->prepare("SELECT * FROM users WHERE id = ?");
         $stmt->execute([$id]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetch();
     }
 
-    // Crear nuevo usuario
-    public function create($data)
+    public static function createUser($username, $email, $role)
     {
-        $stmt = $this->db->prepare("INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)");
-        return $stmt->execute([
-            $data['username'],
-            $data['email'],
-            $data['password'],
-            $data['role']
-        ]);
+        $db = Database::getInstance();
+        $stmt = $db->prepare("INSERT INTO users (username, email, role, password) VALUES (?, ?, ?, ?)");
+        $defaultPassword = password_hash("123456", PASSWORD_DEFAULT); // Contraseña por defecto
+        $stmt->execute([$username, $email, $role, $defaultPassword]);
     }
 
-    // Actualizar usuario
-    public function update($data)
+    public static function updateUser($id, $username, $email, $role)
     {
-        $stmt = $this->db->prepare("UPDATE users SET username = ?, email = ?, role = ? WHERE id = ?");
-        return $stmt->execute([
-            $data['username'],
-            $data['email'],
-            $data['role'],
-            $data['id']
-        ]);
+        $db = Database::getInstance();
+        $stmt = $db->prepare("UPDATE users SET username = ?, email = ?, role = ? WHERE id = ?");
+        $stmt->execute([$username, $email, $role, $id]);
     }
 
-    // Eliminar usuario
-    public function delete($id)
+    public static function deleteUser($id)
     {
-        $stmt = $this->db->prepare("DELETE FROM users WHERE id = ?");
-        return $stmt->execute([$id]);
+        $db = Database::getInstance();
+        $stmt = $db->prepare("DELETE FROM users WHERE id = ?");
+        $stmt->execute([$id]);
     }
 }
