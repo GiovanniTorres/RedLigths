@@ -83,7 +83,12 @@ class UserController
 
     // Método por defecto
     public function index()
-    {
-        echo "Controlador de usuarios activo.";
-    }
+{
+    require_once __DIR__ . '/../../config/database.php';
+
+    $stmt = $pdo->query("SELECT * FROM users");
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    require_once __DIR__ . '/../views/registered_users.php';
+}
 }
