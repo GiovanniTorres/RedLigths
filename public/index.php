@@ -2,8 +2,8 @@
 
 namespace Core;
 
-use App\Controller\UserController;
-use App\Controller\ViewsController;
+use App\controller\UserController;
+use App\controller\ViewsController;
 
 class Router
 {
