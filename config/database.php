@@ -1,7 +1,7 @@
 <?php
 return [
     'host' => 'aws.connect.psdb.cloud',
-    'user' => 's04vr2uceeclmt1byk2w',
-    'pass' => 'pscale_pw_mQ4sRZGgfXXhVAapcvDXmmjKmK61FcwQYSbThZNtUhK',
+    'user' => '2mb1lpo9cqmpn4f45btd',
+    'pass' => 'pscale_pw_RLplrD0fHKF3l5lR5dCn4Yepqwdwkj86VZdqWTIc0fF',
     'name' => 'redlights'
 ];
