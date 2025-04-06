@@ -1,91 +1,89 @@
 <?php
-
 namespace App\Controller;
 
 use App\Models\UserModel;
 
 class UserController
 {
-    private $userModel;
-
-    public function __construct()
+    // Mostrar vista de usuarios registrados
+    public function registered()
     {
-        $this->userModel = new UserModel();
+        $users = UserModel::getAllUsers();
+        require_once __DIR__ . '/../views/registered_users.php';
     }
 
-    // Mostrar todos los usuarios
-    public function index()
-    {
-        $users = $this->userModel->getAll();
-        require_once '../app/views/header.php';
-        require_once '../app/views/registered_users.php';
-        require_once '../app/views/footer.php';
-    }
-
-    // Mostrar formulario de registro
+    // Mostrar formulario para crear un usuario
     public function create()
     {
-        require_once '../app/views/header.php';
-        require_once '../app/views/auth/register.php';
-        require_once '../app/views/footer.php';
-    }
-
-    // Guardar nuevo usuario
-    public function store()
-    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $data = [
-                'username' => $_POST['username'] ?? '',
-                'email'    => $_POST['email'] ?? '',
-                'password' => password_hash($_POST['password'] ?? '', PASSWORD_DEFAULT),
-                'role'     => $_POST['role'] ?? 'viewer'
-            ];
+            $username = $_POST['username'] ?? '';
+            $email = $_POST['email'] ?? '';
+            $role = $_POST['role'] ?? '';
 
-            $this->userModel->create($data);
-            header("Location: /users");
-            exit;
+            if ($username && $email && $role) {
+                UserModel::createUser($username, $email, $role);
+                header('Location: /users/registered');
+                exit;
+            } else {
+                $error = 'Todos los campos son obligatorios.';
+            }
         }
+
+        require_once __DIR__ . '/../views/create_user.php';
     }
 
-    // Mostrar formulario de edición
+    // Mostrar formulario para editar un usuario existente
     public function edit()
     {
         $id = $_GET['id'] ?? null;
-        if ($id) {
-            $user = $this->userModel->getById($id);
-            require_once '../app/views/header.php';
-            require_once '../app/views/auth/edit.php'; // esta vista la crearemos
-            require_once '../app/views/footer.php';
-        } else {
-            echo "ID no proporcionado";
-        }
-    }
 
-    // Actualizar usuario
-    public function update()
-    {
+        if (!$id) {
+            echo "ID de usuario no proporcionado.";
+            return;
+        }
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $data = [
-                'id'       => $_POST['id'],
-                'username' => $_POST['username'],
-                'email'    => $_POST['email'],
-                'role'     => $_POST['role']
-            ];
+            $username = $_POST['username'] ?? '';
+            $email = $_POST['email'] ?? '';
+            $role = $_POST['role'] ?? '';
 
-            $this->userModel->update($data);
-            header("Location: /users");
-            exit;
+            if ($username && $email && $role) {
+                UserModel::updateUser($id, $username, $email, $role);
+                header('Location: /users/registered');
+                exit;
+            } else {
+                $error = 'Todos los campos son obligatorios.';
+            }
         }
+
+        $user = UserModel::getUserById($id);
+
+        if (!$user) {
+            echo "Usuario no encontrado.";
+            return;
+        }
+
+        require_once __DIR__ . '/../views/edit_user.php';
     }
 
-    // Eliminar usuario
+    // Eliminar un usuario por ID
     public function delete()
     {
         $id = $_GET['id'] ?? null;
-        if ($id) {
-            $this->userModel->delete($id);
-            header("Location: /users");
-            exit;
+
+        if (!$id) {
+            echo "ID de usuario no proporcionado.";
+            return;
         }
+
+        UserModel::deleteUser($id);
+        header('Location: /users/registered');
+        exit;
+    }
+
+    // Método por defecto
+    public function index()
+    {
+        echo "Controlador de usuarios activo.";
     }
 }
