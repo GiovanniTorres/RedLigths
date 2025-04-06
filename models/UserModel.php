@@ -1,36 +1,61 @@
 <?php
-require_once __DIR__ . '/../Core/Database.php';
 
-class UserModel {
+namespace App\Models;
+
+use Core\Database;
+use PDO;
+
+class UserModel
+{
     private $db;
 
-    public function __construct() {
-        $database = new Database();
-        $this->db = $database->getConnection();
+    public function __construct()
+    {
+        $this->db = Database::getInstance()->getConnection();
     }
 
-    public function getAll() {
-        $stmt = $this->db->query("SELECT * FROM users");
-        return $stmt->fetchAll();
+    // Obtener todos los usuarios
+    public function getAll()
+    {
+        $stmt = $this->db->query("SELECT * FROM users ORDER BY id DESC");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getById($id) {
+    // Obtener usuario por ID
+    public function getById($id)
+    {
         $stmt = $this->db->prepare("SELECT * FROM users WHERE id = ?");
         $stmt->execute([$id]);
-        return $stmt->fetch();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function create($data) {
-        $stmt = $this->db->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
-        return $stmt->execute([$data['username'], $data['email'], $data['password']]);
+    // Crear nuevo usuario
+    public function create($data)
+    {
+        $stmt = $this->db->prepare("INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)");
+        return $stmt->execute([
+            $data['username'],
+            $data['email'],
+            $data['password'],
+            $data['role']
+        ]);
     }
 
-    public function update($id, $data) {
-        $stmt = $this->db->prepare("UPDATE users SET username = ?, email = ?, password = ? WHERE id = ?");
-        return $stmt->execute([$data['username'], $data['email'], $data['password'], $id]);
+    // Actualizar usuario
+    public function update($data)
+    {
+        $stmt = $this->db->prepare("UPDATE users SET username = ?, email = ?, role = ? WHERE id = ?");
+        return $stmt->execute([
+            $data['username'],
+            $data['email'],
+            $data['role'],
+            $data['id']
+        ]);
     }
 
-    public function delete($id) {
+    // Eliminar usuario
+    public function delete($id)
+    {
         $stmt = $this->db->prepare("DELETE FROM users WHERE id = ?");
         return $stmt->execute([$id]);
     }
