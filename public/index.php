@@ -1,12 +1,49 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
-require_once __DIR__ . '/../Core/Autoload.php'; // Cargar el autoloader
-require_once __DIR__ . '/../Core/Router.php'; // Cargar el enrutador
+namespace Core;
 
-use Core\Router;
+use App\Controllers\UserController;
+use App\Controllers\ViewsController;
 
-// Crear una instancia del enrutador y manejar la solicitud
-$router = new Router();
-$router->handleRequest(); // Gestionar la solicitud y cargar la vista correspondiente
+class Router
+{
+    public function handleRequest()
+    {
+        $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+        // Enrutamiento básico
+        switch ($uri) {
+            case '/':
+                (new ViewsController())->home();
+                break;
+
+            case '/users':
+                (new UserController())->index();
+                break;
+
+            case '/users/create':
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    (new UserController())->store();
+                } else {
+                    (new UserController())->create();
+                }
+                break;
+
+            case '/users/edit':
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    (new UserController())->update();
+                } else {
+                    (new UserController())->edit();
+                }
+                break;
+
+            case '/users/delete':
+                (new UserController())->delete();
+                break;
+
+            default:
+                echo "404 Página no encontrada";
+                break;
+        }
+    }
+}
