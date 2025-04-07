@@ -2,7 +2,10 @@
 
 <a href="/users/create">Agregar Usuario</a>
 
-<?php if (!empty($users) && is_array($users)): ?>
+<?
+var_dump($users);
+die();
+php if (!empty($users) && is_array($users)): ?>
     <table>
         <thead>
             <tr>
