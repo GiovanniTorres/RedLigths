@@ -11,7 +11,7 @@ class UserController
         print "<br>UserController.php";
         $users = UserModel::getAllUsers();
 
-        if (!$registered_users) {
+        if (!$users) {
             echo "Aviso: No se encontraron usuarios o hubo un error en la consulta.";
         }
 
