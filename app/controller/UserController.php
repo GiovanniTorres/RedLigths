@@ -82,12 +82,17 @@ class UserController
     }
 
     // Método por defecto
-    public function index()
+public function index()
 {
     require_once __DIR__ . '/../../config/database.php';
 
-    $stmt = $pdo->query("SELECT * FROM users");
-    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    try {
+        $stmt = $pdo->query("SELECT * FROM users");
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "Error en la consulta: " . $e->getMessage();
+        return;
+    }
 
     require_once __DIR__ . '/../views/registered_users.php';
 }
