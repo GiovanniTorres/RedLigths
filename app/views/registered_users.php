@@ -3,8 +3,8 @@
 <a href="/users/create">Agregar Usuario</a>
 
 <?php
-var_dump($users);
-die();
+//var_dump($users);
+//die();
 if (!empty($users) && is_array($users)): ?>
     <table>
         <thead>
