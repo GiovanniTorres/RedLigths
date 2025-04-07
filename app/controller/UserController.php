@@ -8,6 +8,7 @@ class UserController
     // Método por defecto: lista de usuarios registrados
     public function index()
     {
+        print "<br>UserController.php";
         $users = UserModel::getAllUsers();
 
         if (!$users) {
