@@ -7,7 +7,7 @@ class Router
     {
         // Obtener la URI de la solicitud
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-
+        print "Ruta solicitada URI";
         // Enrutamiento según la URI
         switch ($uri) {
             // Página de inicio (vista estática)
