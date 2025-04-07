@@ -15,7 +15,7 @@ class UserController
             echo "Aviso: No se encontraron usuarios o hubo un error en la consulta.";
         }
 
-        require_once __DIR__ . '/../views/registered_users.php';
+        require_once __DIR__ . '/../views/users.php';
     }
 
     // Mostrar vista de usuarios registrados (opcional si usas /users/registered)
