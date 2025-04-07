@@ -16,7 +16,7 @@ class Router
                 break;
 
             // Usuarios (vistas dinámicas)
-            case '/registered_users':
+            case '/users':
                 print "registered_users desde router.php";
                 $controllerClass = "App\\Controller\\UserController";
                 break;
