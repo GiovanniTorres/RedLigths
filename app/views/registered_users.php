@@ -1,4 +1,4 @@
-<h1>Lista de Usuarios Registrados</h1>
+<h1>Lista de Usuarios Registrados registered_users.php</h1>
 
 <a href="/users/create">Agregar Usuario</a>
 
