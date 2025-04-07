@@ -1,8 +1,8 @@
 <?php
-$host = 'tu_host_de_planetscale';
-$db   = 'nombre_de_base_de_datos';
-$user = 'tu_usuario';
-$pass = 'tu_contraseña';
+$host = 'aws.connect.psdb.cloud';
+$db   = 'redlights';
+$user = '2mb1lpo9cqmpn4f45btd';
+$pass = 'pscale_pw_RLplrD0fHKF3l5lR5dCn4Yepqwdwkj86VZdqWTIc0fF';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
