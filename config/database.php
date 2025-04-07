@@ -1,14 +1,20 @@
 <?php
-// config/database.php
+$host = 'tu_host_de_planetscale';
+$db   = 'nombre_de_base_de_datos';
+$user = 'tu_usuario';
+$pass = 'tu_contraseña';
+$charset = 'utf8mb4';
 
-$host = 'aws.connect.psdb.cloud';
-$db   = 'redlights';
-$user = '2mb1lpo9cqmpn4f45btd';
-$pass = 'pscale_pw_RLplrD0fHKF3l5lR5dCn4Yepqwdwkj86VZdqWTIc0fF';
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+];
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8mb4", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Error de conexión: " . $e->getMessage());
+    $pdo = new PDO($dsn, $user, $pass, $options);
+} catch (\PDOException $e) {
+    echo "Error de conexión: " . $e->getMessage();
+    exit;
 }
