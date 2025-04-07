@@ -5,10 +5,27 @@ use App\Models\UserModel;
 
 class UserController
 {
-    // Mostrar vista de usuarios registrados
+    // Método por defecto: lista de usuarios registrados
+    public function index()
+    {
+        $users = UserModel::getAllUsers();
+
+        if (!$users) {
+            echo "Aviso: No se encontraron usuarios o hubo un error en la consulta.";
+        }
+
+        require_once __DIR__ . '/../views/registered_users.php';
+    }
+
+    // Mostrar vista de usuarios registrados (opcional si usas /users/registered)
     public function registered()
     {
         $users = UserModel::getAllUsers();
+
+        if (!$users) {
+            echo "Aviso: No se encontraron usuarios o hubo un error en la consulta.";
+        }
+
         require_once __DIR__ . '/../views/registered_users.php';
     }
 
@@ -80,30 +97,4 @@ class UserController
         header('Location: /users/registered');
         exit;
     }
-
-    // Método por defecto
-public function index()
-{
-    require_once __DIR__ . '/../../config/database.php';
-     if (!isset($pdo)) {
-            echo "Error: No se pudo establecer conexión con la base de datos.";
-            return;
-        }
-    try {
-        $stmt = $pdo->query("SELECT * FROM users");
-        if (!$stmt) {
-                echo "Error: La consulta SQL falló.";
-                return;
-        }
-        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-             if (empty($users)) {
-                echo "Aviso: No hay registros en la tabla `users`.";
-             }
-    } catch (PDOException $e) {
-        echo "Error en la consulta: " . $e->getMessage();
-        return;
-    }
-
-    require_once __DIR__ . '/../views/registered_users.php';
-}
 }
