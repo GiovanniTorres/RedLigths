@@ -50,7 +50,7 @@ class UserController
         require_once __DIR__ . '/../views/create_user.php';
     }
 
-    // Mostrar formulario para editar un usuario existente
+    // Moostrar formulario para editar un usuario existente
     public function edit()
     {
         $id = $_GET['id'] ?? null;
