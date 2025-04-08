@@ -1,63 +1,45 @@
 <?php
 
-
 namespace Core;
-
 
 class Router
 {
+    // Método para manejar las solicitudes
     public function handleRequest()
     {
-        print "router";
-        // Obtener la URI de la solicitud
-        //$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         // Obtener la URI de la solicitud desde el parámetro 'url'
-$uri = isset($_GET['url']) ? $_GET['url'] : '/';
-        print "Ruta solicitada URI".$uri;
-        // Enrutamiento según la URI
-        switch ($uri) {
-            // Página de inicio (vista estática)
-            case '/':
-                print "ViewsController";
+        $uri = isset($_GET['url']) ? $_GET['url'] : '/';
+        print "Ruta solicitada URI: " . $uri . "<br>";
 
-                $controllerClass = "App\\Controller\\ViewsController";
-                break;
+        // Definir las rutas y sus controladores/métodos
+        $routes = [
+            '/' => ['controller' => 'App\\Controller\\ViewsController', 'action' => 'index'],
+            '/users' => ['controller' => 'App\\Controller\\UserController', 'action' => 'index'],
+            '/users/create' => ['controller' => 'App\\Controller\\UserController', 'action' => 'create'],
+            '/users/edit' => ['controller' => 'App\\Controller\\UserController', 'action' => 'edit'],
+            '/users/delete' => ['controller' => 'App\\Controller\\UserController', 'action' => 'delete'],
+        ];
 
-            // Usuarios (vistas dinámicas)
-            case '/users':
-                print "UserController";
-                $controllerClass = "App\\Controller\\UserController";
-                break;
+        // Verificar si la URI coincide con alguna ruta definida
+        if (isset($routes[$uri])) {
+            $controllerClass = $routes[$uri]['controller'];
+            $action = $routes[$uri]['action'];
 
-            // Crear usuario
-            case '/users/create':
-                $controllerClass = "App\\Controller\\UserController";
-                break;
+            // Verificar si el controlador existe
+            if (class_exists($controllerClass)) {
+                $controller = new $controllerClass();
 
-            // Editar usuario
-            case '/users/edit':
-                $controllerClass = "App\\Controller\\UserController";
-                break;
-
-            // Eliminar usuario
-            case '/users/delete':
-                $controllerClass = "App\\Controller\\UserController";
-                break;
-
-            // Página no encontrada
-            default:
-                echo "404 Página no encontrada";
-                return;
-        }
-
-        // Verificar si el controlador existe y llamar al método adecuado
-        if (class_exists($controllerClass)) {
-            $controller = new $controllerClass();
-            // Aquí podrías agregar una lógica para llamar a un método específico
-            // dependiendo de la acción que se esté ejecutando
-            $controller->index(); // Este método debe existir en cada controlador
+                // Verificar si el método de la acción existe en el controlador
+                if (method_exists($controller, $action)) {
+                    $controller->$action(); // Llamar al método correspondiente
+                } else {
+                    echo "Método no encontrado: $action en $controllerClass";
+                }
+            } else {
+                echo "Controlador no encontrado: $controllerClass";
+            }
         } else {
-            echo "Router Error 404: Página no encontrada.";
+            echo "404 Página no encontrada";
         }
     }
 }
