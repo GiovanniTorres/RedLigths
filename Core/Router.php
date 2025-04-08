@@ -1,7 +1,6 @@
 <?php
 
 namespace Core;
-use App\Controller\UserController
 class Router
 {
     // Método para manejar las solicitudes
