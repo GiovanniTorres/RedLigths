@@ -6,7 +6,9 @@ class Router
     public function handleRequest()
     {
         // Obtener la URI de la solicitud
-        $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        //$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        // Obtener la URI de la solicitud desde el parámetro 'url'
+$uri = isset($_GET['url']) ? $_GET['url'] : '/';
         print "Ruta solicitada URI".$uri;
         // Enrutamiento según la URI
         switch ($uri) {
