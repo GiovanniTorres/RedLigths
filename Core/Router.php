@@ -18,12 +18,14 @@ $uri = isset($_GET['url']) ? $_GET['url'] : '/';
         switch ($uri) {
             // Página de inicio (vista estática)
             case '/':
+                print "ViewsController";
+
                 $controllerClass = "App\\Controller\\ViewsController";
                 break;
 
             // Usuarios (vistas dinámicas)
             case '/users':
-                print "registered_users desde router.php";
+                print "UserController";
                 $controllerClass = "App\\Controller\\UserController";
                 break;
 
