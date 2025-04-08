@@ -4,7 +4,7 @@
 
 <?php
 var_dump($users);
-//die();
+///die();
 if (!empty($users) && is_array($users)): ?>
     <table>
         <thead>
