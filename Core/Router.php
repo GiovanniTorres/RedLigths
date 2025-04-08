@@ -1,4 +1,6 @@
 <?php
+
+print "router";
 namespace Core;
 
 class Router
