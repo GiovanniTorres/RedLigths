@@ -1,4 +1,6 @@
 <?php
+
+print "UserController";
 namespace App\Controller;
 
 use App\Models\UserModel;
