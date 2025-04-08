@@ -9,7 +9,7 @@ class Router
     {
         // Obtener la URI de la solicitud desde el parámetro 'url'
         $uri = isset($_GET['url']) ? $_GET['url'] : '/';
-        print $_GET['url'] ;
+        print $_GET["url"] ;
         print "Ruta: " . $uri . "<br>";
 
         // Definir las rutas y sus controladores/métodos
