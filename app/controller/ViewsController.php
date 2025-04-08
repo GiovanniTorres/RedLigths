@@ -1,11 +1,12 @@
 <?php
 
-print "ViewsController";
+
 
 namespace App\Controller;
 
 class ViewsController
 {
+    print "ViewsController";
     public function index()
     {
         // Obtener la vista de la URL, ahora con el parámetro 'views'
