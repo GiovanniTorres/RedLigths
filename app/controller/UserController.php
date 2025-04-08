@@ -8,23 +8,11 @@ class UserController
     // Método por defecto: lista de usuarios registrados
     public function index()
     {
-        print "<br>UserController.php";
         $users = UserModel::getAllUsers();
 
         if (!$users) {
             echo "Aviso: No se encontraron usuarios o hubo un error en la consulta.";
-        }
-
-        require_once __DIR__ . '/../views/users.php';
-    }
-
-    // Mostrar vista de usuarios registrados (opcional si usas /users/registered)
-    public function registered()
-    {
-        $users = UserModel::getAllUsers();
-
-        if (!$users) {
-            echo "Aviso: No se encontraron usuarios o hubo un error en la consulta.";
+            return;
         }
 
         require_once __DIR__ . '/../views/users.php';
@@ -40,7 +28,7 @@ class UserController
 
             if ($username && $email && $role) {
                 UserModel::createUser($username, $email, $role);
-                header('Location: /users/registered');
+                header('Location: /users'); // Redirige a la lista de usuarios
                 exit;
             } else {
                 $error = 'Todos los campos son obligatorios.';
@@ -50,7 +38,7 @@ class UserController
         require_once __DIR__ . '/../views/create_user.php';
     }
 
-    // Moostrar formulario para editar un usuario existente
+    // Mostrar formulario para editar un usuario existente
     public function edit()
     {
         $id = $_GET['id'] ?? null;
@@ -67,7 +55,7 @@ class UserController
 
             if ($username && $email && $role) {
                 UserModel::updateUser($id, $username, $email, $role);
-                header('Location: /users/registered');
+                header('Location: /users'); // Redirige a la lista de usuarios
                 exit;
             } else {
                 $error = 'Todos los campos son obligatorios.';
@@ -95,7 +83,7 @@ class UserController
         }
 
         UserModel::deleteUser($id);
-        header('Location: /users/registered');
+        header('Location: /users'); // Redirige a la lista de usuarios
         exit;
     }
 }
