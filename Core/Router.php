@@ -22,7 +22,7 @@ class Router
         
         // Verificar si la URI coincide con alguna ruta definida
         if (isset($routes[$uri])) {
-            print $controllerClass = $routes[$uri]['controller'];
+            print "[Router]" . $controllerClass = $routes[$uri]['controller'];
             print "<br>" . $action = $routes[$uri]['action'];
 
             // Verificar si el controlador existe
