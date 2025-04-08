@@ -2,12 +2,13 @@
 
 
 namespace Core;
-print "router";
+
 
 class Router
 {
     public function handleRequest()
     {
+        print "router";
         // Obtener la URI de la solicitud
         //$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         // Obtener la URI de la solicitud desde el parámetro 'url'
