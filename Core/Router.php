@@ -12,7 +12,7 @@ class Router
 
         // Definir las rutas y sus controladores/métodos
         $routes = [
-            '/' => ['controller' => 'App\\Controller\\ViewsController', 'action' => 'index'],
+            '/' => ['controller' => 'App\\Controller\\UserController', 'action' => 'index'],
             '/users' => ['controller' => 'App\\Controller\\UserController', 'action' => 'index'],
             '/users/create' => ['controller' => 'App\\Controller\\UserController', 'action' => 'create'],
             '/users/edit' => ['controller' => 'App\\Controller\\UserController', 'action' => 'edit'],
