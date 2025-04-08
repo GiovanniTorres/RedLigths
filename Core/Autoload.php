@@ -7,7 +7,7 @@ spl_autoload_register(function ($class) {
         $file = __DIR__ . '/../app/controller/' . basename(str_replace('\\', '/', $class)) . '.php';
         //print $file;
     }
-print $file;
+//print $file;
     if (file_exists($file)) {
         require_once $file;
     } else {
