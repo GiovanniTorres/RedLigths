@@ -19,10 +19,10 @@ class Router
             '/users/edit' => ['controller' => 'App\\Controller\\UserController', 'action' => 'edit'],
             '/users/delete' => ['controller' => 'App\\Controller\\UserController', 'action' => 'delete'],
         ];
-        print $routes[$uri] ;
+        
         // Verificar si la URI coincide con alguna ruta definida
         if (isset($routes[$uri])) {
-            $controllerClass = $routes[$uri]['controller'];
+            print $controllerClass = $routes[$uri]['controller'];
             $action = $routes[$uri]['action'];
 
             // Verificar si el controlador existe
