@@ -1,5 +1,7 @@
 <?php
 
+print "ViewsController";
+
 namespace App\Controller;
 
 class ViewsController
