@@ -7,7 +7,7 @@ use App\Models\UserModel;
 
 class UserController
 {
-    print "UserController";
+    //print "UserController";
     // Método por defecto: lista de usuarios registrados
     public function index()
     {
