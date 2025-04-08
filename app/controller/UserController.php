@@ -1,6 +1,4 @@
 <?php
-
-
 namespace App\Controller;
 
 use App\Models\UserModel;
