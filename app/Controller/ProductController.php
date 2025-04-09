@@ -7,15 +7,17 @@ class ProductController
 {
     public function index()
     {
-        ViewHelper::render('products', [
-            'title' => 'Listado de productos'
+        ViewHelper::render('product', [
+            'title' => 'Listado de productos',
+            'viewType' => 'list'
         ]);
     }
 
     public function show($id)
     {
-        ViewHelper::render('product_detail', [
+        ViewHelper::render('product', [
             'title' => "Detalle del producto #$id",
+            'viewType' => 'detail',
             'id' => $id
         ]);
     }
