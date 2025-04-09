@@ -1,44 +1,31 @@
 <?php
-
 namespace Core;
+
 class Router
 {
-    // Método para manejar las solicitudes
     public function handleRequest()
     {
-        // Obtener la URI de la solicitud desde el parámetro 'url'
-        $uri = isset($_GET['url']) ? $_GET['url'] : '/';
-        //print $uri ;
+        $url = $_GET['url'] ?? 'home';
 
-        // Definir las rutas y sus controladores/métodos
-        $routes = [
-            '/' => ['controller' => 'App\\Controller\\ViewsController', 'action' => 'index'],
-            '/users' => ['controller' => 'App\\Controller\\UserController', 'action' => 'index'],
-            '/users/create' => ['controller' => 'App\\Controller\\UserController', 'action' => 'create'],
-            '/users/edit' => ['controller' => 'App\\Controller\\UserController', 'action' => 'edit'],
-            '/users/delete' => ['controller' => 'App\\Controller\\UserController', 'action' => 'delete'],
-        ];
-        
-        // Verificar si la URI coincide con alguna ruta definida
-        if (isset($routes[$uri])) {
-            $controllerClass = $routes[$uri]['controller'];
-            $action = $routes[$uri]['action'];
+        // Si empieza con 'users', usa UserController
+        if (strpos($url, 'users') === 0) {
+            $controllerClass = 'App\\Controller\\UserController';
+        } else {
+            // Cualquier otro va a ViewsController
+            $controllerClass = 'App\\Controller\\ViewsController';
+        }
 
-            // Verificar si el controlador existe
-            if (class_exists($controllerClass)) {
-                $controller = new $controllerClass();
-
-                // Verificar si el método de la acción existe en el controlador
-                if (method_exists($controller, $action)) {
-                    $controller->$action(); // Llamar al método correspondiente
-                } else {
-                    echo "Método no encontrado: $action en $controllerClass";
-                }
+        // Verifica si la clase existe
+        if (class_exists($controllerClass)) {
+            $controller = new $controllerClass();
+            // Llama al método index por defecto
+            if (method_exists($controller, 'index')) {
+                $controller->index();
             } else {
-                echo "Controlador no encontrado: $controllerClass";
+                echo "Método index no encontrado.";
             }
         } else {
-            echo "Router 404 Página no encontrada";
+            echo "Controlador no encontrado: $controllerClass";
         }
     }
 }
