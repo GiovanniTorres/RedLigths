@@ -38,6 +38,12 @@ class Router
             return;
         }
 
+        if ($controllerName === 'aboutme') {
+            $controller = new \App\Controller\ViewsController();
+            $controller->aboutme();
+            return;
+        }
+
         echo "404 - Página no encontrada";
     }
 }
