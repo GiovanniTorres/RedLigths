@@ -13,4 +13,11 @@ class ViewsController
         // Llamar al render
         ViewHelper::render('home', $data);
     }
+
+    public function aboutme()
+    {
+        \Core\ViewHelper::render('aboutme', [
+            'title' => 'Sobre mí'
+        ]);
+    }
 }
