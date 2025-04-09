@@ -7,8 +7,10 @@ class ViewsController
 {
     public function index()
     {
-        // Simplemente imprimir el mensaje
-        //echo "Llamando al render desde el controlador 'index'<br>";
-        ViewHelper::render('home');  // Llamamos al render con la vista 'home'
+        // Pasar un dato de prueba a la vista
+        $data = ['title' => 'Bienvenido a la página de inicio'];
+        
+        // Llamar al render
+        ViewHelper::render('home', $data);
     }
 }
