@@ -6,7 +6,7 @@ class ViewsController
 {
     public function index()
     {
-        print "ViewsController";
+        //print "ViewsController";
         ViewHelper::render('home');
     }
 
