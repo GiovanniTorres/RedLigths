@@ -7,7 +7,7 @@ class Router
     public function handleRequest()
     {
         // Obtener la URI de la solicitud desde el parámetro 'url'
-        $uri = isset($_GET['view']) ? $_GET['view'] : '/';
+        $uri = isset($_GET['url']) ? $_GET['url'] : '/';
         print $uri ;
 
         // Definir las rutas y sus controladores/métodos
