@@ -7,4 +7,8 @@ class ViewsController
     {
         print "ViewsController";
     }
+    public function product()
+    {
+        print "ViewsController product";
+    }
 }
