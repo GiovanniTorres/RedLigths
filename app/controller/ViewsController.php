@@ -7,7 +7,7 @@ class ViewsController
     public function index()
     {
         // Obtener la vista de la URL, ahora con el parámetro 'views'
-        $view = $_GET['view'] ?? 'home'; // Por defecto 'home'
+        $view = $_GET['url'] ?? 'home'; // Por defecto 'home'
         print $view;
         // Verificar si la vista existe y cargarla
         $this->loadView($view);
