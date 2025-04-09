@@ -22,7 +22,7 @@ class ViewHelper
             require_once $viewFile;
             require_once $footer;
         } else {
-            echo "<h1>404 - La vista '$view' no fue encontrada</h1>";
+            echo "<h1>ViewHelper - La vista '$view' no fue encontrada</h1>";
         }
     }
 }
