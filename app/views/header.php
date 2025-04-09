@@ -25,11 +25,11 @@
             </div>
             <nav class="navbar">
                 <ul class="menu" id="menu">
-                    <li><a href="?url=home">Inicio</a></li>
-                    <li><a href="?url=product">Productos</a></li>
-                    <li><a href="?url=contact">Contacto</a></li>
-                    <li><a href="?url=aboutme">Sobre Nosotros</a></li>
-                    <li><a href="?url=users">Registro de usuarios</a></li>
+                    <li><a href="home">Inicio</a></li>
+                    <li><a href="product">Productos</a></li>
+                    <li><a href="contact">Contacto</a></li>
+                    <li><a href="aboutme">Sobre Nosotros</a></li>
+                    <li><a href="users">Registro de usuarios</a></li>
                 </ul>
                 <div class="menu-toggle" id="menu-toggle">
                     <span class="bar"></span>
