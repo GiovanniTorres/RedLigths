@@ -15,7 +15,7 @@ class Router
 
         if ($uri === 'product') {
             $controller = new \App\Controller\ViewsController();
-            $controller->productos();
+            $controller->product();
             return;
         }
 
