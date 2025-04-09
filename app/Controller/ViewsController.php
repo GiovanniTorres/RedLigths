@@ -6,6 +6,7 @@ class ViewsController
     public function index()
     {
         print "ViewsController";
+        ViewHelper::render('home');
     }
 
     public function product($id = null)
