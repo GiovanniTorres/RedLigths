@@ -7,11 +7,12 @@ class ViewsController
 {
     public function index()
     {
-        ViewHelper::render('home');
+        print "index/ViewsController";
+        //ViewHelper::render('home');
     }
 
     public function contact()
     {
-        ViewHelper::render('contact');
+        //ViewHelper::render('contact');
     }
 }
