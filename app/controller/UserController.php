@@ -1,90 +1,10 @@
 <?php
 namespace App\Controller;
 
-use App\Models\UserModel;
-
 class UserController
 {
-    //print "UserController";
-    // Método por defecto: lista de usuarios registrados
     public function index()
     {
-        $users = UserModel::getAllUsers();
-
-        if (!$users) {
-            echo "Aviso: No se encontraron usuarios o hubo un error en la consulta.";
-            return;
-        }
-
-        require_once __DIR__ . '/../views/users.php';
-    }
-
-    // Mostrar formulario para crear un usuario
-    public function create()
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $username = $_POST['username'] ?? '';
-            $email = $_POST['email'] ?? '';
-            $role = $_POST['role'] ?? '';
-
-            if ($username && $email && $role) {
-                UserModel::createUser($username, $email, $role);
-                header('Location: /users'); // Redirige a la lista de usuarios
-                exit;
-            } else {
-                $error = 'Todos los campos son obligatorios.';
-            }
-        }
-
-        require_once __DIR__ . '/../views/create_user.php';
-    }
-
-    // Mostrar formulario para editar un usuario existente
-    public function edit()
-    {
-        $id = $_GET['id'] ?? null;
-
-        if (!$id) {
-            echo "ID de usuario no proporcionado.";
-            return;
-        }
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $username = $_POST['username'] ?? '';
-            $email = $_POST['email'] ?? '';
-            $role = $_POST['role'] ?? '';
-
-            if ($username && $email && $role) {
-                UserModel::updateUser($id, $username, $email, $role);
-                header('Location: /users'); // Redirige a la lista de usuarios
-                exit;
-            } else {
-                $error = 'Todos los campos son obligatorios.';
-            }
-        }
-
-        $user = UserModel::getUserById($id);
-
-        if (!$user) {
-            echo "Usuario no encontrado.";
-            return;
-        }
-
-        require_once __DIR__ . '/../views/edit_user.php';
-    }
-
-    // Eliminar un usuario por ID
-    public function delete()
-    {
-        $id = $_GET['id'] ?? null;
-
-        if (!$id) {
-            echo "ID de usuario no proporcionado.";
-            return;
-        }
-
-        UserModel::deleteUser($id);
-        header('Location: /users'); // Redirige a la lista de usuarios
-        exit;
+        print "UserController";
     }
 }
