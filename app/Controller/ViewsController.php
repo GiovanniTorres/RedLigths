@@ -7,8 +7,8 @@ class ViewsController
 {
     public function index()
     {
-        print "index/ViewsController";
-        //ViewHelper::render('home');
+        //print "index/ViewsController";
+        ViewHelper::render('home');
     }
 
     public function contact()
