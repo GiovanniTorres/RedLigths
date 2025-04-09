@@ -17,6 +17,12 @@ class Router
             return;
         }
 
+        if ($controllerName === 'aboutme') {
+            $controller = new \App\Controller\ViewsController();
+            $controller->aboutme();
+            return;
+        }
+
         // Controlador de productos
         if ($controllerName === 'product') {
             $controller = new \App\Controller\ProductController();
@@ -35,12 +41,6 @@ class Router
         if ($controllerName === 'users') {
             $controller = new \App\Controller\UserController();
             $controller->index();
-            return;
-        }
-
-        if ($controllerName === 'aboutme') {
-            $controller = new \App\Controller\ViewsController();
-            $controller->aboutme();
             return;
         }
 
