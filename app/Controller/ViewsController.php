@@ -1,6 +1,6 @@
 <?php
 namespace App\Controller;
-use Core\ViewHelper
+use Core\ViewHelper;
 
 class ViewsController
 {
