@@ -7,8 +7,13 @@ class ViewsController
     {
         print "ViewsController";
     }
-    public function product()
+
+    public function product($id = null)
     {
-        print "ViewsController product";
+        if ($id) {
+            print "Producto con ID: $id";
+        } else {
+            print "Lista de productos";
+        }
     }
 }
