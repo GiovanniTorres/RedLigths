@@ -5,27 +5,26 @@ class Router
 {
     public function handleRequest()
     {
-        $url = $_GET['url'] ?? 'home';
+        $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 
-        // Si empieza con 'users', usa UserController
-        if (strpos($url, 'users') === 0) {
-            $controllerClass = 'App\\Controller\\UserController';
-        } else {
-            // Cualquier otro va a ViewsController
-            $controllerClass = 'App\\Controller\\ViewsController';
+        if ($uri === '' || $uri === 'home') {
+            $controller = new \App\Controller\ViewsController();
+            $controller->index();
+            return;
         }
 
-        // Verifica si la clase existe
-        if (class_exists($controllerClass)) {
-            $controller = new $controllerClass();
-            // Llama al método index por defecto
-            if (method_exists($controller, 'index')) {
-                $controller->index();
-            } else {
-                echo "Método index no encontrado.";
-            }
-        } else {
-            echo "Controlador no encontrado: $controllerClass";
+        if ($uri === 'productos') {
+            $controller = new \App\Controller\ViewsController();
+            $controller->productos();
+            return;
         }
+
+        if ($uri === 'users') {
+            $controller = new \App\Controller\UserController();
+            $controller->index();
+            return;
+        }
+
+        echo "404 - Página no encontrada";
     }
 }
