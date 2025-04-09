@@ -21,8 +21,8 @@ class Router
         
         // Verificar si la URI coincide con alguna ruta definida
         if (isset($routes[$uri])) {
-            print "[Router]" . $controllerClass = $routes[$uri]['controller'];
-            print "[Router2]" . $action = $routes[$uri]['action'];
+            $controllerClass = $routes[$uri]['controller'];
+            $action = $routes[$uri]['action'];
 
             // Verificar si el controlador existe
             if (class_exists($controllerClass)) {
@@ -38,7 +38,7 @@ class Router
                 echo "Controlador no encontrado: $controllerClass";
             }
         } else {
-            echo "404 Página no encontrada";
+            echo "Router 404 Página no encontrada";
         }
     }
 }
