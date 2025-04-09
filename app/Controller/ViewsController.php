@@ -11,8 +11,8 @@ class ViewsController
         ViewHelper::render('home');
     }
 
-    public function contact()
-    {
+    //public function contact()
+ //   {
         //ViewHelper::render('contact');
-    }
+ //   }
 }
