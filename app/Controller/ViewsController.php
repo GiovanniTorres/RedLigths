@@ -7,12 +7,8 @@ class ViewsController
 {
     public function index()
     {
-        //print "index/ViewsController";
-        ViewHelper::render('home');
+        // Simplemente imprimir el mensaje
+        echo "Llamando al render desde el controlador 'index'<br>";
+        ViewHelper::render('home');  // Llamamos al render con la vista 'home'
     }
-
-    //public function contact()
- //   {
-        //ViewHelper::render('contact');
- //   }
 }
