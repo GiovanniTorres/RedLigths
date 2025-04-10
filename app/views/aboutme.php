@@ -1,13 +1,13 @@
-<div class="flex w-full h-screen bg-gray-900 text-white">
-  <!-- Imagen (2/5) -->
-  <div class="w-2/5">
+<div class="flex flex-col lg:flex-row w-full min-h-screen bg-gray-900 text-white">
+  <!-- Imagen (2/5 en escritorio) -->
+  <div class="lg:w-2/5 w-full h-64 lg:h-auto">
     <img src="https://via.placeholder.com/600x800" alt="Mi imagen" class="w-full h-full object-cover">
   </div>
 
-  <!-- Acerca de mí (3/5) -->
-  <div class="w-3/5 p-10 flex flex-col justify-center">
-    <h1 class="text-4xl font-bold mb-4 border-b-2 border-red-500 inline-block">Acerca de mí</h1>
-    <p class="text-lg leading-relaxed">
+  <!-- Acerca de mí (3/5 en escritorio) -->
+  <div class="lg:w-3/5 w-full p-6 lg:p-10 flex flex-col justify-center">
+    <h1 class="text-3xl lg:text-4xl font-bold mb-4 border-b-2 border-red-500 inline-block">Acerca de mí</h1>
+    <p class="text-base lg:text-lg leading-relaxed">
       Hola, soy Jhovany. Me apasiona la programación, la libertad creativa y aprender cosas nuevas todos los días. Me estoy formando como desarrollador web y estoy construyendo proyectos con buenas prácticas, estructura modular y mucha motivación.
     </p>
   </div>
