@@ -20,4 +20,11 @@ class ViewsController
             'title' => 'Sobre mí'
         ]);
     }
+
+    public function contact()
+    {
+        \Core\ViewHelper::render('contact', [
+            'title' => 'Contacto'
+        ]);
+    }
 }
