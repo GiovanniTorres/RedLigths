@@ -11,7 +11,7 @@
     <div class="md:col-span-3 bg-black p-6 rounded-xl shadow-lg">
       <h3 class="text-2xl font-bold text-white mb-4">Jhovany Torres</h3>
       <p class="text-gray-400 leading-relaxed text-justify">
-        Soy un apasionado de la programación, amante del diseño limpio, el código eficiente y las ideas que marcan diferencia. Me gusta construir soluciones digitales con personalidad, funcionalidad y estilo.
+        Soy un apasionado de la programación, amante del diseño limpio, el código eficiente y las ideas que marcan diferencia. <br><br>Me gusta construir soluciones digitales con personalidad, funcionalidad y estilo.
       </p>
     </div>
   </div>
