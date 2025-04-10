@@ -1,10 +1,24 @@
 <?php
 namespace App\Controller;
 
+use Core\ViewHelper;
+
 class UserController
 {
     public function index()
     {
-        print "UserController";
+        ViewHelper::render('users', [
+            'title' => 'Listado de usuarios',
+            'viewType' => 'list'
+        ]);
+    }
+
+    public function show($id)
+    {
+        ViewHelper::render('users', [
+            'title' => "Detalle del usuario #$id",
+            'viewType' => 'detail',
+            'id' => $id
+        ]);
     }
 }
