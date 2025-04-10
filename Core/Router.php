@@ -23,6 +23,12 @@ class Router
             return;
         }
 
+        if ($controllerName === 'contact') {
+            $controller = new \App\Controller\ViewsController();
+            $controller->contact();
+            return;
+        }
+
         // Controlador de productos
         if ($controllerName === 'product') {
             $controller = new \App\Controller\ProductController();
