@@ -16,12 +16,8 @@ class ViewsController
 
     public function aboutme()
     {
-        //\Core\ViewHelper::render('aboutme', [
-            //'title' => 'Sobre mí'
-        //]);
-        $data = ['title' => 'About Me'];
-        
-        // Llamar al render
-        ViewHelper::render('aboutme', $data);
+        \Core\ViewHelper::render('aboutme', [
+            'title' => 'Sobre mí'
+        ]);
     }
 }
