@@ -19,7 +19,7 @@ class Router
 
         if ($controllerName === 'aboutme') {
             $controller = new \App\Controller\ViewsController();
-            $controller->index();
+            $controller->aboutme();
             return;
         }
 
