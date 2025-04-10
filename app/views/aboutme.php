@@ -4,7 +4,7 @@
   <div class="grid sm:grid-cols-1 md:grid-cols-5 gap-6 items-center">
     <!-- Imagen -->
     <div class="md:col-span-2">
-      <img src="../../public/images/yo.jpg" alt="Mi imagen" class="rounded-xl shadow-lg w-full h-auto object-cover">
+      <img src="/images/yo.jpg" alt="Mi imagen" class="rounded-xl shadow-lg w-full h-auto object-cover">
     </div>
 
     <!-- Texto -->
