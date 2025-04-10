@@ -1,14 +1,21 @@
-<div class="flex flex-col lg:flex-row w-full min-h-screen bg-gray-900 text-white">
-  <!-- Imagen (2/5 en escritorio, 100% en móvil) -->
-  <div class="lg:w-2/5 w-full h-64 lg:h-auto">
-    <img src="https://via.placeholder.com/600x800" alt="Mi imagen" class="w-full h-full object-cover">
-  </div>
-
-  <!-- Acerca de mí -->
-  <div class="lg:w-3/5 w-full p-6 lg:p-10 flex flex-col justify-center">
-    <h1 class="text-3xl lg:text-4xl font-bold mb-4 border-b-2 border-red-500 inline-block">Acerca de mí</h1>
-    <p class="text-base lg:text-lg leading-relaxed">
-      Hola, soy Jhovany. Me apasiona la programación, la libertad creativa y aprender cosas nuevas todos los días. Me estoy formando como desarrollador web y estoy construyendo proyectos con buenas prácticas, estructura modular y mucha motivación.
-    </p>
-  </div>
-</div>
+<section class="max-w-6xl mx-auto px-6 bg-white text-white">
+    <h2 class="text-3xl text-black mb-6">Proyectos Destacados<span class="text-red-500">.</span></h2>
+    <div class="grid md:grid-cols-3 gap-6">
+        <!-- Tarjeta de Proyecto -->
+        <div class="bg-black p-4 rounded-xl shadow-lg">
+            <img src="https://via.placeholder.com/300" alt="Proyecto 1" class="rounded-lg mb-3">
+            <h3 class="text-xl text-white">Proyecto 1</h3>
+            <p class="text-gray-400">Descripción breve del proyecto<span class="text-red-500">...</span></p>
+        </div>
+        <div class="bg-black p-4 rounded-xl shadow-lg">
+            <img src="https://via.placeholder.com/300" alt="Proyecto 2" class="rounded-lg mb-3">
+            <h3 class="text-xl text-white">Proyecto 2</h3>
+            <p class="text-gray-400">Descripción breve del proyecto<span class="text-red-500">...</span></p>
+        </div>
+        <div class="bg-black p-4 rounded-xl shadow-lg">
+            <img src="https://via.placeholder.com/300" alt="Proyecto 3" class="rounded-lg mb-3">
+            <h3 class="text-xl text-white">Proyecto 3</h3>
+            <p class="text-gray-400">Descripción breve del proyecto<span class="text-red-500">...</span></p>
+        </div>
+    </div>
+</section>
