@@ -6,9 +6,9 @@ class ViewHelper
     public static function render($view, $data = [])
     {
         // Imprime el contenido de $data para ver qué variables llegan
-        echo '<pre>';
-        print_r($data);
-        echo '</pre>';
+        //echo '<pre>';
+        //print_r($data);
+        //echo '</pre>';
 
         extract($data); // Extrae variables para usar en la vista
 
