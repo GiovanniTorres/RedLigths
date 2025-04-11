@@ -11,15 +11,15 @@ class Database {
     }
 
     public function connect() {
-        try {
-            $dsn = "mysql:host=$this->host;dbname=$this->database;charset=utf8mb4";
-            $options = [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-            ];
+        $this->conn = new mysqli(
+            $this->host,
+            $this->username,
+            $this->password,
+            $this->database
+        );
 
-            $this->conn = new PDO($dsn, $this->username, $this->password, $options);
-        } catch (PDOException $e) {
-            die("Error de conexión: " . $e->getMessage());
+        if ($this->conn->connect_error) {
+            die("Error de conexión: " . $this->conn->connect_error);
         }
 
         return $this->conn;
