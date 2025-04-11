@@ -1,5 +1,5 @@
 <?php
-
+/*
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'redlights');
 define('DB_USER', 'root');
