@@ -15,7 +15,6 @@ class Database {
             $dsn = "mysql:host=$this->host;dbname=$this->database;sslmode=require";
             $options = [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
                 PDO::MYSQL_ATTR_SSL_CA => __DIR__ . '/cacert.pem'
             ];
 
