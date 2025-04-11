@@ -1,20 +1,28 @@
 <?php
-$host = 'aws.connect.psdb.cloud';
-$db   = 'redlights';
-$user = '2mb1lpo9cqmpn4f45btd';
-$pass = 'pscale_pw_RLplrD0fHKF3l5lR5dCn4Yepqwdwkj86VZdqWTIc0fF';
-$charset = 'utf8mb4';
+//$charset = 'utf8mb4';
+class Database {
+    private $host = 'aws.connect.psdb.cloud';
+    private $username = '2mb1lpo9cqmpn4f45btd';
+    private $password = 'pscale_pw_RLplrD0fHKF3l5lR5dCn4Yepqwdwkj86VZdqWTIc0fF';
+    private $database = 'redlights';
+    public $conn;
 
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+    public function __construct() {
+        $this->connect();
+    }
 
-$options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-];
+    public function connect() {
+        $this->conn = new mysqli(
+            $this->host,
+            $this->username,
+            $this->password,
+            $this->database
+        );
 
-try {
-    $pdo = new PDO($dsn, $user, $pass, $options);
-} catch (\PDOException $e) {
-    echo "Error de conexión: " . $e->getMessage();
-    exit;
+        if ($this->conn->connect_error) {
+            die("Error de conexión: " . $this->conn->connect_error);
+        }
+
+        return $this->conn;
+    }
 }
