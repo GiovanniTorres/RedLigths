@@ -1,5 +1,4 @@
 <?php
-//$charset = 'utf8mb4';
 class Database {
     private $host = 'aws.connect.psdb.cloud';
     private $username = '2mb1lpo9cqmpn4f45btd';
@@ -12,15 +11,17 @@ class Database {
     }
 
     public function connect() {
-        $this->conn = new mysqli(
-            $this->host,
-            $this->username,
-            $this->password,
-            $this->database
-        );
+        try {
+            $dsn = "mysql:host=$this->host;dbname=$this->database;sslmode=require";
+            $options = [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+                PDO::MYSQL_ATTR_SSL_CA => __DIR__ . '/cacert.pem'
+            ];
 
-        if ($this->conn->connect_error) {
-            die("Error de conexión: " . $this->conn->connect_error);
+            $this->conn = new PDO($dsn, $this->username, $this->password, $options);
+        } catch (PDOException $e) {
+            die("Error de conexión: " . $e->getMessage());
         }
 
         return $this->conn;
