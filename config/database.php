@@ -12,10 +12,9 @@ class Database {
 
     public function connect() {
         try {
-            $dsn = "mysql:host=$this->host;dbname=$this->database;sslmode=require";
+            $dsn = "mysql:host=$this->host;dbname=$this->database;charset=utf8mb4";
             $options = [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::MYSQL_ATTR_SSL_CA => __DIR__ . '/cacert.pem'
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
             ];
 
             $this->conn = new PDO($dsn, $this->username, $this->password, $options);
