@@ -3,14 +3,8 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "features": {
-    "ghcr.io/devcontainers/features/mysql:1": {
-      "version": "8.0",
-      "mysqlDatabase": "redlights",
-      "mysqlUser": "admin",
-      "mysqlPassword": "admin"
-    }
-  },
+  "features": {},
+  "postCreateCommand": "php -m | grep pdo",
   "forwardPorts": [8080],
   "remoteUser": "vscode"
 }
