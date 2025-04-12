@@ -1,10 +1,15 @@
-# Usa una imagen base de PHP 8.2 con Apache
-FROM mcr.microsoft.com/devcontainers/php:8.2
+FROM php:8.2-apache
 
-# Instala extensiones necesarias
-RUN apt-get update && \
-    apt-get install -y libpng-dev libonig-dev libxml2-dev libssl-dev \
+# Instala dependencias necesarias para PDO MySQL
+RUN apt-get update && apt-get install -y \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    default-mysql-client \
+    unzip \
+    zip \
+    libssl-dev \
     && docker-php-ext-install pdo pdo_mysql
 
-# Verifica que pdo_mysql está instalado
-RUN php -m | grep pdo_mysql || echo "pdo_mysql no se instaló"
+# Habilita mod_rewrite (por si lo necesitas luego)
+RUN a2enmod rewrite
