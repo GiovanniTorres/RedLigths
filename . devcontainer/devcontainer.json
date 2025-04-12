@@ -1,0 +1,16 @@
+{
+    "name": "PHP + PlanetScale",
+      "image": "mcr.microsoft.com/devcontainers/php:8.2",
+        "features": {
+            "ghcr.io/devcontainers/features/mysql:1": {
+                  "version": "8.0",
+                        "mysqlDatabase": "redlights",
+                              "mysqlUser": "admin",
+                                    "mysqlPassword": "admin"
+                                        }
+                                          },
+                                            "postCreateCommand": "docker-php-ext-install pdo pdo_mysql",
+                                              "forwardPorts": [8080],
+                                                "remoteUser": "vscode"
+                                                }
+}
