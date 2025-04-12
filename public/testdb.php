@@ -6,4 +6,4 @@ $conn = $db->getConnection();
 
 if ($conn) {
     echo "¡Conexión exitosa a PlanetScale con PDO!";
-    }
+}
