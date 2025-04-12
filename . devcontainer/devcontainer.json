@@ -3,8 +3,6 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "features": {},
-  "postCreateCommand": "php -m | grep pdo",
   "forwardPorts": [8080],
   "remoteUser": "vscode"
 }
