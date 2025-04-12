@@ -9,7 +9,7 @@
       "mysqlPassword": "admin"
     }
   },
-  "postCreateCommand": "docker-php-ext-install pdo pdo_mysql",
+  "postCreateCommand": "apt-get update && apt-get install -y php8.2-mysql && docker-php-ext-install pdo pdo_mysql",
   "forwardPorts": [8080],
   "remoteUser": "vscode"
 }
