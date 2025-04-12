@@ -1,5 +1,5 @@
 {
-  "name": "PHP + PlanetScale",
+  "name": "PHP 8.2 + MySQL",
   "build": {
     "dockerfile": "Dockerfile"
   },
