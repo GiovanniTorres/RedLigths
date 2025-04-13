@@ -1,9 +1,7 @@
 {
-  "name": "PHP + PlanetScale",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
+  "name": "PHP + SQLite",
+  "image": "mcr.microsoft.com/devcontainers/php:8.2",
+  "postCreateCommand": "docker-php-ext-install pdo pdo_sqlite",
   "forwardPorts": [8080],
-  "postCreateCommand": "php -m",
   "remoteUser": "vscode"
 }
