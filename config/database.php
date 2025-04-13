@@ -2,26 +2,14 @@
 class Database {
     private $conn;
 
-    public function __construct($driver = 'sqlite') {
-        $this->connect($driver);
+    public function __construct() {
+        $this->connect();
     }
 
-    private function connect($driver) {
+    private function connect() {
         try {
-            if ($driver === 'mysql') {
-                $this->conn = new PDO(
-                    'mysql:host=localhost;dbname=redlights',
-                    'root',
-                    '',
-                    [
-                        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-                    ]
-                );
-            } else {
-                $this->conn = new PDO('sqlite:' . __DIR__ . '/../local.db');
-                $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            }
+            $this->conn = new PDO('sqlite:' . __DIR__ . '/../local.db');
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             die("Error de conexión: " . $e->getMessage());
         }
