@@ -1,9 +1,8 @@
 {
-  "name": "PHP 8.2 + MySQL",
+  "name": "PHP + Apache + MySQL",
   "build": {
     "dockerfile": "Dockerfile"
   },
   "forwardPorts": [8080],
   "remoteUser": "vscode"
 }
-
