@@ -3,10 +3,7 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "features": {
-    "ghcr.io/devcontainers/features/common-utils:2": {}
-  },
-  "postCreateCommand": "php -m | grep pdo_mysql || echo 'pdo_mysql NO INSTALADO'",
   "forwardPorts": [8080],
+  "postCreateCommand": "php -m",
   "remoteUser": "vscode"
 }
