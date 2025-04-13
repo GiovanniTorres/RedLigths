@@ -1,9 +1,13 @@
 <?php
 require_once __DIR__ . '/../config/database.php';
 
-$db = new Database(); // usa SQLite por default
+$db = new Database();
 $conn = $db->getConnection();
 
-if ($conn) {
-    echo "¡Conexión exitosa con SQLite!";
-}
+$conn->exec("CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    email TEXT
+)");
+
+echo "¡Base de datos SQLite lista!";
