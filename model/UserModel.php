@@ -1,18 +1,25 @@
 <?php
 class UserModel {
-    private $conn;
+    private $db;
 
-        public function __construct($db) {
-                $this->conn = $db;
-                    }
+    public function __construct($conn) {
+        $this->db = $conn;
+    }
 
-                        public function create($name) {
-                                $stmt = $this->conn->prepare("INSERT INTO users (name) VALUES (?)");
-                                        return $stmt->execute([$name]);
-                                            }
+    public function createUser($name, $email, $password) {
+        $stmt = $this->db->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
+        return $stmt->execute([$name, $email, $password]);
+    }
 
-                                                public function getAll() {
-                                                        $stmt = $this->conn->query("SELECT * FROM users");
-                                                                return $stmt->fetchAll();
-                                                                    }
-                                                                    }
+    public function getUserByEmail($email) {
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE email = ?");
+        $stmt->execute([$email]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function getUserById($id) {
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE id = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+}
