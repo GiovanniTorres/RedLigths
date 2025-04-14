@@ -8,11 +8,10 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-    <link rel="stylesheet" href="/menu.css"> <!-- Menú Estilos -->
-    <link rel="stylesheet" href="/style.css"> <!-- Estilos Generales -->
+   <link rel="stylesheet" href="/menu.css"> <!-- Menú Estilos -->
+   <link rel="stylesheet" href="/style.css"> <!-- Estilos Generales -->
    <link rel="stylesheet" href="/home.css"> <!-- Estilos Generales -->
-
-   <link rel="stylesheet" href="footer.css"> <!-- Estilos Generales -->
+   <link rel="stylesheet" href="/footer.css"> <!-- Estilos Generales -->
 
 <script src="menu.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
