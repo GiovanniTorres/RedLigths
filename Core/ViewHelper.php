@@ -12,10 +12,9 @@ class ViewHelper
 
         extract($data); // Extrae variables para usar en la vista
 
-        // Rutas de las vistas y archivos
-        $viewFile = "../app/views/{$view}.php";
-        $header = "../app/views/header.php";
-        $footer = "../app/views/footer.php";
+        $viewFile = __DIR__ . "/../app/views/{$view}.php"; // Ruta absoluta para la vista
+        $header = __DIR__ . "/../app/views/header.php"; // Ruta absoluta para el header
+        $footer = __DIR__ . "/../app/views/footer.php"; // Ruta absoluta para el footer
 
         if (file_exists($viewFile)) {
             require_once $header;
