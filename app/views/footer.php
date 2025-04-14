@@ -29,6 +29,6 @@
     </div>
 </footer>
 
-<script src="js/menu.js"></script> <!-- Archivo JS para el menú -->
+<script src="/js/menu.js"></script> <!-- Archivo JS para el menú -->
 </body>
 </html>
