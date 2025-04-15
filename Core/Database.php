@@ -1,23 +1,25 @@
 <?php
 namespace Core;
-class Database {
-    private $conn;
 
-    public function __construct() {
-        $this->connect();
-    }
+use PDO;
+use PDOException;
 
-    private function connect() {
-        try {
-            $this->conn = new PDO("sqlite:" . __DIR__ . "/../local.db");
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $this->conn->exec("PRAGMA foreign_keys = ON;"); // Muy importante
-        } catch (PDOException $e) {
-            die("Error de conexión: " . $e->getMessage());
+class Database
+{
+    private static $pdo;
+
+    public static function getConnection()
+    {
+        if (!self::$pdo) {
+            try {
+                $dbFile = __DIR__ . '/../config/local.db';
+                self::$pdo = new PDO('sqlite:' . $dbFile);
+                self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (PDOException $e) {
+                die("Error al conectar a la base de datos: " . $e->getMessage());
+            }
         }
-    }
 
-    public function getConnection() {
-        return $this->conn;
+        return self::$pdo;
     }
 }
