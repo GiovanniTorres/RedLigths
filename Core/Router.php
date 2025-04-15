@@ -43,6 +43,19 @@ class Router
             return;
         }
 
+        if ($controllerName === 'project') {
+            $controller = new \App\Controller\ProjectController();
+
+            if ($param && is_numeric($param)) {
+                $controller->show($param); // /project/23
+            } elseif ($param === 'edit' && isset($segments[2]) && is_numeric($segments[2])) {
+                $controller->edit($segments[2]); // /project/edit/23
+            } else {
+                $controller->index(); // /project
+            }
+            return;
+        }
+
         if ($controllerName === 'users') {
             $controller = new \App\Controller\UserController();
 
