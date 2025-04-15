@@ -42,6 +42,19 @@ class Router
             return;
         }
 
+        if ($controllerName === 'likes') {
+            $controller = new \App\Controller\LikesController();
+
+            if ($param && is_numeric($param)) {
+                $controller->show($param); // /like/23
+            } elseif ($param === 'edit' && isset($segments[2]) && is_numeric($segments[2])) {
+                $controller->edit($segments[2]); // /like/edit/23
+            } else {
+                $controller->index(); // /like
+            }
+            return;
+        }
+        
         // Controlador de productos
         if ($controllerName === 'product') {
             $controller = new \App\Controller\ProductController();
