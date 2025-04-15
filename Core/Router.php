@@ -23,6 +23,19 @@ class Router
             return;
         }
 
+        if ($controllerName === 'comment') {
+            $controller = new \App\Controller\CommentController();
+
+            if ($param && is_numeric($param)) {
+                $controller->show($param); // /comment/23
+            } elseif ($param === 'edit' && isset($segments[2]) && is_numeric($segments[2])) {
+                $controller->edit($segments[2]); // /comment/edit/23
+            } else {
+                $controller->index(); // /comment
+            }
+            return;
+        }
+
         if ($controllerName === 'contact') {
             $controller = new \App\Controller\ViewsController();
             $controller->contact();
