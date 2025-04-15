@@ -1,25 +1,60 @@
 <?php
-class UserModel {
-    private $db;
+namespace App\Controller;
 
-    public function __construct($conn) {
-        $this->db = $conn;
+use Core\ViewHelper;
+use App\Models\UserModel;
+use Core\Database;
+
+class UserController
+{
+    private $userModel;
+
+    public function __construct()
+    {
+        $this->userModel = new UserModel(Database::getConnection());
     }
 
-    public function createUser($name, $email, $password) {
-        $stmt = $this->db->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
-        return $stmt->execute([$name, $email, $password]);
+    public function index()
+    {
+        $users = $this->userModel->getAllUsers();
+        ViewHelper::render('users', [
+            'title' => 'Listado de usuarios',
+            'viewType' => 'list',
+            'users' => $users
+        ]);
     }
 
-    public function getUserByEmail($email) {
-        $stmt = $this->db->prepare("SELECT * FROM users WHERE email = ?");
-        $stmt->execute([$email]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+    public function show($id)
+    {
+        $user = $this->userModel->getUserById($id);
+        ViewHelper::render('users', [
+            'title' => "Detalle del usuario #$id",
+            'viewType' => 'detail',
+            'user' => $user
+        ]);
     }
 
-    public function getUserById($id) {
-        $stmt = $this->db->prepare("SELECT * FROM users WHERE id = ?");
-        $stmt->execute([$id]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+    public function create()
+    {
+        ViewHelper::render('auth/register', [
+            'title' => 'Crear nuevo usuario'
+        ]);
+    }
+
+    public function store()
+    {
+        $name = $_POST['name'] ?? '';
+        $email = $_POST['email'] ?? '';
+        $password = password_hash($_POST['password'] ?? '', PASSWORD_DEFAULT);
+
+        if ($this->userModel->createUser($name, $email, $password)) {
+            header("Location: /users");
+            exit;
+        } else {
+            ViewHelper::render('auth/register', [
+                'title' => 'Error al registrar usuario',
+                'error' => true
+            ]);
+        }
     }
 }
