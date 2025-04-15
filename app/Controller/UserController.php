@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use Core\ViewHelper;
-use App\Models\UserModel;
+use App\models\UserModel;
 use Core\Database;
 
 class UserController
