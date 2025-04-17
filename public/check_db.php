@@ -2,8 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-require_once __DIR__ . '/../Core/config.php'; // o usa la conexión directa si prefieres
-
+require_once __DIR__ . '/../config/database.php';
 try {
     $pdo = new PDO('sqlite:' . __DIR__ . '/../Core/local.db');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
