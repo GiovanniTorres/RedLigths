@@ -1,23 +1,20 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../Core/Database.php';
+
+use Core\Database;
+
 try {
-    $pdo = new PDO('sqlite:' . __DIR__ . '/../Core/local.db');
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $db = new Database();
+    $pdo = $db->getConnection();
 
-    $stmt = $pdo->query('SELECT * FROM users');
-    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // Consultar si existe la tabla users
+    $stmt = $pdo->query("SELECT name FROM sqlite_master WHERE type='table' AND name='users'");
+    $result = $stmt->fetch();
 
-    if (count($users) === 0) {
-        echo "La tabla 'users' está vacía.";
+    if ($result) {
+        echo "Conexión exitosa. La tabla 'users' existe.";
     } else {
-        echo "<h2>Usuarios encontrados:</h2><ul>";
-        foreach ($users as $user) {
-            echo "<li>" . htmlspecialchars($user['name']) . " - " . htmlspecialchars($user['email']) . "</li>";
-        }
-        echo "</ul>";
+        echo "Conexión exitosa, pero la tabla 'users' NO existe.";
     }
 } catch (PDOException $e) {
     echo "Error al consultar la base de datos: " . $e->getMessage();
