@@ -12,7 +12,7 @@ class Database
     {
         if (!self::$pdo) {
             try {
-                $dbFile = __DIR__ . '/../config/local.db';
+                $dbFile = __DIR__ . '/../Core/local.db';
                 self::$pdo = new PDO('sqlite:' . $dbFile);
                 self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
