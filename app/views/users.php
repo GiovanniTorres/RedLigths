@@ -1,38 +1,22 @@
-<h1>Lista de Usuarios Registrados registered_users.php</h1>
-
-<a href="/users/create">Agregar Usuario</a>
-
 <?php
-var_dump($users);
-///die();
-if (!empty($users) && is_array($users)): ?>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre de Usuario</th>
-                <th>Email</th>
-                <th>Rol</th>
-                <th>Fecha de Registro</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($users as $user): ?>
-            <tr>
-                <td><?= htmlspecialchars($user['id']) ?></td>
-                <td><?= htmlspecialchars($user['username']) ?></td>
-                <td><?= htmlspecialchars($user['email']) ?></td>
-                <td><?= htmlspecialchars($user['role']) ?></td>
-                <td><?= htmlspecialchars($user['created_at']) ?></td>
-                <td>
-                    <a href="/users/edit?id=<?= urlencode($user['id']) ?>">Editar</a> |
-                    <a href="/users/delete?id=<?= urlencode($user['id']) ?>" onclick="return confirm('¿Eliminar este usuario?')">Eliminar</a>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-<?php else: ?>
-    <p>No hay usuarios registrados aún.</p>
-<?php endif; ?>
+require_once __DIR__ . '/../Core/Database.php';
+
+use Core\Database;
+
+try {
+    $db = new Database();
+    $pdo = $db->getConnection();
+
+    // Consultar si existe la tabla users
+    $stmt = $pdo->query("SELECT name FROM sqlite_master WHERE type='table' AND name='users'");
+    $result = $stmt->fetch();
+
+    if ($result) {
+        echo "Conexión exitosa. La tabla 'users' existe.";
+    } else {
+        echo "Conexión exitosa, pero la tabla 'users' NO existe.";
+    }
+} catch (PDOException $e) {
+    echo "Error al consultar la base de datos: " . $e->getMessage();
+}
+
