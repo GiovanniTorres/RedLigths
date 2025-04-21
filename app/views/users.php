@@ -1,6 +1,6 @@
 
 <body class="bg-black">
-<h1 class="text-3xl font-bold text-white-600 mb-6"><?= htmlspecialchars($title) ?></h1>
+<h1 class="text-3xl font-bold text-white mb-6"><?= htmlspecialchars($title) ?></h1>
 
 <?php if ($viewType === 'list'): ?>
     <?php if (!empty($users)): ?>
