@@ -1,3 +1,9 @@
+<h1 class="text-2xl font-bold mb-4"><?= $title ?></h1>
+
+<?php if (!empty($error)): ?>
+    <p class="text-red-500">Hubo un error al registrar el usuario.</p>
+<?php endif; ?>
+
 <form action="/users/store" method="POST" class="space-y-4">
     <div>
         <label class="block text-sm">Nombre:</label>
