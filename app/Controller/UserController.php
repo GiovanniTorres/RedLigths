@@ -49,15 +49,40 @@ class UserController
     {
         $name = $_POST['name'] ?? '';
         $email = $_POST['email'] ?? '';
-        $password = password_hash($_POST['password'] ?? '', PASSWORD_DEFAULT);
+        $password = $_POST['password'] ?? '';
+        $errors = [];
 
-        if ($this->userModel->createUser($name, $email, $password)) {
+        // Validación
+        if (empty($name)) {
+            $errors[] = "El nombre es obligatorio.";
+        }
+        if (empty($email)) {
+            $errors[] = "El correo es obligatorio.";
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors[] = "El correo no es válido.";
+        }
+        if (empty($password)) {
+            $errors[] = "La contraseña es obligatoria.";
+        }
+
+        // Si hay errores, vuelve al formulario de registro con los errores
+        if (!empty($errors)) {
+            ViewHelper::render('auth/register_user', [
+                'title' => 'Crear nuevo usuario',
+                'errors' => $errors
+            ]);
+            return;
+        }
+
+        // Si todo está bien, guardamos el usuario
+        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+        if ($this->userModel->createUser($name, $email, $passwordHash)) {
             header("Location: /users");
             exit;
         } else {
             ViewHelper::render('auth/register_user', [
                 'title' => 'Error al registrar usuario',
-                'error' => true
+                'errors' => ['Hubo un error al registrar el usuario.']
             ]);
         }
     }
