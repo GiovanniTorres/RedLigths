@@ -85,21 +85,19 @@ class Router
         if ($controllerName === 'users') {
             $controller = new \App\Controller\UserController();
 
-            if ($param && is_numeric($param)) {
-                $controller->show($param); // /product/23
-            } elseif ($param === 'edit' && isset($segments[2]) && is_numeric($segments[2])) {
-                $controller->edit($segments[2]); // /product/edit/23
-            } else {
-                $controller->index(); // /product
-            }
-            return;
+        if ($param === 'create') {
+            $controller->create(); // /users/create
+        } elseif ($param === 'store' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+            $controller->store(); // /users/store
+        } elseif ($param && is_numeric($param)) {
+            $controller->show($param); // /users/23
+        } elseif ($param === 'edit' && isset($segments[2]) && is_numeric($segments[2])) {
+            $controller->edit($segments[2]); // /users/edit/23
+        } else {
+            $controller->index(); // /users
+          }
+          return;
         }
-        // Controlador de usuarios
-        /*if ($controllerName === 'users') {
-            $controller = new \App\Controller\UserController();
-            $controller->index();
-            return;
-        }*/
 
         echo "404 - Página no encontrada";
     }
