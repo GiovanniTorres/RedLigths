@@ -85,16 +85,16 @@ class Router
 
 
         if ($controllerName === 'users') {
-    $controller = new \App\Controller\UserController();
+            $controller = new \App\Controller\UserController();
 
-    if ($param === 'create') {
-        $controller->create(); // /users/create
-    } elseif ($param && is_numeric($param)) {
-        $controller->show($param); // /users/23
-    } else {
-        $controller->index(); // /users
-    }
-    return;
+            if ($param === 'create') {
+                $controller->create(); // /users/create
+            } elseif ($param && is_numeric($param)) {
+                $controller->show($param); // /users/23
+            } else {
+                $controller->index(); // /users
+            }
+            return;
         }
 
         echo "404 - Página no encontrada";
