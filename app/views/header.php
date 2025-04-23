@@ -28,7 +28,8 @@
                     <li><a href="/product">Productos</a></li>
                     <li><a href="/contact">Contacto</a></li>
                     <li><a href="/aboutme">Sobre Nosotros</a></li>
-                    <li><a href="/users">Registro de usuarios</a></li>
+                    <li><a href="/users">Usarios</a></li>
+                    <li><a href="/auth/users">Regustrar Usuarios</a></li>  
                 </ul>
                 <div class="menu-toggle" id="menu-toggle">
                     <span class="bar"></span>
