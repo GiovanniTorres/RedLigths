@@ -39,7 +39,7 @@ class UserController
     // Mostrar formulario de registro
     public function create()
     {
-        ViewHelper::render('auth/register', [
+        ViewHelper::render('auth/register_user', [
             'title' => 'Crear nuevo usuario'
         ]);
     }
