@@ -63,13 +63,17 @@ class UserController
         }
         if (empty($password)) {
             $errors[] = "La contraseña es obligatoria.";
+        } elseif (strlen($password) < 6) {
+            $errors[] = "La contraseña debe tener al menos 6 caracteres.";
         }
 
         // Si hay errores, vuelve al formulario de registro con los errores
         if (!empty($errors)) {
             ViewHelper::render('auth/register_user', [
                 'title' => 'Crear nuevo usuario',
-                'errors' => $errors
+                'errors' => $errors,
+                'name' => $name,
+                'email' => $email
             ]);
             return;
         }
