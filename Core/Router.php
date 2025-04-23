@@ -89,6 +89,8 @@ class Router
 
             if ($param === 'create') {
                 $controller->create(); // /users/create
+            } elseif ($param === 'store' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+                $controller->store(); // /users/store
             } elseif ($param && is_numeric($param)) {
                 $controller->show($param); // /users/23
             } else {
