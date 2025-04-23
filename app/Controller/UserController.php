@@ -55,7 +55,7 @@ class UserController
             header("Location: /users");
             exit;
         } else {
-            ViewHelper::render('auth/register', [
+            ViewHelper::render('auth/register_user', [
                 'title' => 'Error al registrar usuario',
                 'error' => true
             ]);
